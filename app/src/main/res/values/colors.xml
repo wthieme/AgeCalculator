@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorAccent">#E0F2F7</color>
+    <color name="colorPrimary">#222da1</color>
+    <color name="colorPrimaryDark">#212121</color>
+    <color name="colorText">#535dc1</color>
+    <color name="colorTextReverse">#FFFFFF</color>
+    <color name="colorBackground">#cde9d3</color>
+    <color name="colorOranje">#DF7401</color>
+    <color name="colorBackgroundFab">#F6E3CE</color>
+    <color name="colorOranjeDark">#8A4B08</color>
+    <color name="color1">#7986cb</color>
+    <color name="color2">#C39BD3</color>
+    <color name="color3">#7FB3D5</color>
+    <color name="color4">#D98880</color>
+    <color name="color5">#4db6ac</color>
+    <color name="color6">#81c784</color>
+    <color name="color7">#ffb74d</color>
+    <color name="color8">#ffab91</color>
+    <color name="color9">#bdbdbd</color>
+    <color name="color10">#a1887f</color>
+</resources>

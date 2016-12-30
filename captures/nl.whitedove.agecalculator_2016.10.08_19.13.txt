@@ -1,0 +1,310 @@
+TASK nl.whitedove.agecalculator id=6
+  ACTIVITY nl.whitedove.agecalculator/.MainActivity 41e8eb48 pid=5565
+    Local FragmentActivity 41478ec0 State:
+      mCreated=truemResumed=true mStopped=false mReallyStopped=false
+      mLoadersStarted=true
+    FragmentManager misc state:
+      mHost=android.support.v4.app.FragmentActivity$HostCallbacks@416ea0c8
+      mContainer=android.support.v4.app.FragmentActivity$HostCallbacks@416ea0c8
+      mCurState=5 mStateSaved=false mDestroyed=false
+    View Hierarchy:
+      com.android.internal.policy.impl.PhoneWindow$DecorView{4148b720 V.E..... ... 0,0-480,782}
+        android.widget.LinearLayout{41a321f0 V.E..... ... 0,0-480,782}
+          android.view.ViewStub{4147d168 G.E..... ... 0,0-0,0 #1020366}
+          android.widget.FrameLayout{414ef110 V.ED.... ... 0,38-480,782 #1020002 android:id/content}
+            android.widget.RelativeLayout{41782360 V.E..V.. ... 0,0-480,744 #7f0b006d app:id/rlMain}
+              android.widget.TextView{41a559e0 V.ED.... ... 0,0-480,95}
+              android.widget.LinearLayout{41487820 V.E..... ... 0,0-480,215 #7f0b006e app:id/llDate}
+                android.widget.TextView{41bfd420 V.ED.... ... 2,113-210,200 #7f0b006f app:id/tvDate}
+                android.widget.ImageView{41477698 V.ED..C. ... 210,120-282,192 #7f0b0070 app:id/ivDate}
+                android.widget.TextView{41473a68 V.ED.... ... 282,113-405,200 #7f0b0071 app:id/tvTime}
+                android.widget.ImageView{41780680 V.ED..C. ... 405,120-477,192 #7f0b0072 app:id/ivTime}
+              android.widget.LinearLayout{419610b0 V.E..... ... 0,215-480,275 #7f0b0073 app:id/llYmd}
+                android.widget.TextView{414e8c98 V.ED.... ... 81,8-132,45 #7f0b0074 app:id/tvY}
+                android.widget.TextView{41477a88 V.ED.... ... 132,8-193,45 #7f0b0075 app:id/tvM}
+                android.widget.TextView{4147e620 V.ED.... ... 193,8-235,45 #7f0b0076 app:id/tvW}
+                android.widget.TextView{4174af18 V.ED.... ... 235,8-272,45 #7f0b0077 app:id/tvD}
+                android.widget.TextView{4177fbf0 V.ED.... ... 272,8-309,45 #7f0b0078 app:id/tvH}
+                android.widget.TextView{417a63b0 V.ED.... ... 309,8-355,45 #7f0b0079 app:id/tvMi}
+                android.widget.TextView{4142ca20 V.ED.... ... 355,8-399,45 #7f0b007a app:id/tvS}
+              android.widget.LinearLayout{4148c9b0 V.E..... ... 0,275-480,308 #7f0b007b app:id/llYears}
+                android.widget.TextView{41439c08 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{41444190 V.ED.... ... 240,0-480,33 #7f0b007c app:id/tvYears}
+              android.widget.LinearLayout{4148cd58 V.E..... ... 0,308-480,341 #7f0b007d app:id/llMonths}
+                android.widget.TextView{41444530 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{41457708 V.ED.... ... 240,0-480,33 #7f0b007e app:id/tvMonths}
+              android.widget.LinearLayout{4148ec70 V.E..... ... 0,341-480,374 #7f0b007f app:id/llWeeks}
+                android.widget.TextView{414fcb18 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{41786eb8 V.ED.... ... 240,0-480,33 #7f0b0080 app:id/tvWeeks}
+              android.widget.LinearLayout{4148fec8 V.E..... ... 0,374-480,407 #7f0b0081 app:id/llDays}
+                android.widget.TextView{41440888 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{419ef0d8 V.ED.... ... 240,0-480,33 #7f0b0082 app:id/tvDays}
+              android.widget.LinearLayout{41493eb8 V.E..... ... 0,407-480,440 #7f0b0083 app:id/llHours}
+                android.widget.TextView{41a4dc18 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{41baff30 V.ED.... ... 240,0-480,33 #7f0b0084 app:id/tvHours}
+              android.widget.LinearLayout{414a2e90 V.E..... ... 0,440-480,473 #7f0b0085 app:id/llMinutes}
+                android.widget.TextView{41bf9808 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{41455cb8 V.ED.... ... 240,0-480,33 #7f0b0086 app:id/tvMinutes}
+              android.widget.LinearLayout{41780900 V.E..... ... 0,473-480,521 #7f0b0087 app:id/llSeconds}
+                android.widget.TextView{41466368 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{41479188 V.ED.... ... 240,0-480,33 #7f0b0088 app:id/tvSeconds}
+              android.widget.LinearLayout{417814a8 V.E..... ... 41,536-438,690 #7f0b0089 app:id/llFabList}
+                android.widget.LinearLayout{41781a88 V.E..... ... 8,23-269,121 #7f0b008a app:id/llNextParty}
+                  android.widget.TextView{4147cbe8 V.ED.... ... 10,8-250,49 #7f0b008b app:id/tvNextParty}
+                  android.widget.TextView{4149dad0 V.ED.... ... 8,49-253,90 #7f0b008c app:id/tvWhenNextParty}
+                android.support.design.widget.FloatingActionButton{417778f8 VFED..C. ... 269,8-389,146 #7f0b008d app:id/fabDgLijst}
+              android.widget.LinearLayout{41785840 V.E..... ... 0,667-480,744 #7f0b008e app:id/llDatumGeval}
+                android.widget.TextView{4179c338 V.ED.... ... 8,8-240,69 #7f0b008f app:id/tvWhen}
+                android.widget.TextView{4180c9e0 V.ED.... ... 240,22-472,55 #7f0b0090 app:id/tvWhat}
+
+  ACTIVITY nl.whitedove.agecalculator/.MainActivity 41e221d8 pid=(not running)
+
+  ACTIVITY nl.whitedove.agecalculator/.MainActivity 41dff760 pid=5565
+    Local FragmentActivity 4142e6a0 State:
+      mCreated=truemResumed=false mStopped=true mReallyStopped=true
+      mLoadersStarted=true
+    Active Fragments in 41797000:
+      #0: null
+    FragmentManager misc state:
+      mHost=android.support.v4.app.FragmentActivity$HostCallbacks@416acde8
+      mContainer=android.support.v4.app.FragmentActivity$HostCallbacks@416acde8
+      mCurState=2 mStateSaved=true mDestroyed=false
+      mAvailIndices: [0]
+    View Hierarchy:
+      com.android.internal.policy.impl.PhoneWindow$DecorView{4142a028 I.E..... ... 0,0-480,782}
+        android.widget.LinearLayout{41499d00 V.E..... ... 0,0-480,782}
+          android.view.ViewStub{4148a860 G.E..... ... 0,0-0,0 #1020366}
+          android.widget.FrameLayout{4178e128 V.ED.... ... 0,38-480,782 #1020002 android:id/content}
+            android.widget.RelativeLayout{4148b450 V.E..V.. ... 0,0-480,744 #7f0b006d app:id/rlMain}
+              android.widget.TextView{419f4748 V.ED.... ... 0,0-480,95}
+              android.widget.LinearLayout{41796da8 V.E..... ... 0,0-480,215 #7f0b006e app:id/llDate}
+                android.widget.TextView{414913e0 V.ED.... ... 2,113-210,200 #7f0b006f app:id/tvDate}
+                android.widget.ImageView{414246a8 V.ED..C. ... 210,120-282,192 #7f0b0070 app:id/ivDate}
+                android.widget.TextView{4177ef30 V.ED.... ... 282,113-405,200 #7f0b0071 app:id/tvTime}
+                android.widget.ImageView{416caa80 V.ED..C. ... 405,120-477,192 #7f0b0072 app:id/ivTime}
+              android.widget.LinearLayout{41a17af8 V.E..... ... 0,215-480,275 #7f0b0073 app:id/llYmd}
+                android.widget.TextView{417cb618 V.ED.... ... 88,8-139,45 #7f0b0074 app:id/tvY}
+                android.widget.TextView{41833df8 V.ED.... ... 139,8-200,45 #7f0b0075 app:id/tvM}
+                android.widget.TextView{41a32868 V.ED.... ... 200,8-242,45 #7f0b0076 app:id/tvW}
+                android.widget.TextView{41bac2e8 V.ED.... ... 242,8-279,45 #7f0b0077 app:id/tvD}
+                android.widget.TextView{41bb2eb0 V.ED.... ... 279,8-316,45 #7f0b0078 app:id/tvH}
+                android.widget.TextView{41bb4430 V.ED.... ... 316,8-362,45 #7f0b0079 app:id/tvMi}
+                android.widget.TextView{41bb5b68 V.ED.... ... 362,8-391,45 #7f0b007a app:id/tvS}
+              android.widget.LinearLayout{41a44008 V.E..... ... 0,275-480,308 #7f0b007b app:id/llYears}
+                android.widget.TextView{4146e600 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{414813d8 V.ED.... ... 240,0-480,33 #7f0b007c app:id/tvYears}
+              android.widget.LinearLayout{41bad4f8 V.E..... ... 0,308-480,341 #7f0b007d app:id/llMonths}
+                android.widget.TextView{4179da58 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{41837160 V.ED.... ... 240,0-480,33 #7f0b007e app:id/tvMonths}
+              android.widget.LinearLayout{4149a910 V.E..... ... 0,341-480,374 #7f0b007f app:id/llWeeks}
+                android.widget.TextView{416b04b0 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{41991cb0 V.ED.... ... 240,0-480,33 #7f0b0080 app:id/tvWeeks}
+              android.widget.LinearLayout{4149aef0 V.E..... ... 0,374-480,407 #7f0b0081 app:id/llDays}
+                android.widget.TextView{41bbb858 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{41ba8958 V.ED.... ... 240,0-480,33 #7f0b0082 app:id/tvDays}
+              android.widget.LinearLayout{4149b5a0 V.E..... ... 0,407-480,440 #7f0b0083 app:id/llHours}
+                android.widget.TextView{41966548 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{41a0be50 V.ED.... ... 240,0-480,33 #7f0b0084 app:id/tvHours}
+              android.widget.LinearLayout{41784c48 V.E..... ... 0,440-480,473 #7f0b0085 app:id/llMinutes}
+                android.widget.TextView{414469b8 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{414b9cb8 V.ED.... ... 240,0-480,33 #7f0b0086 app:id/tvMinutes}
+              android.widget.LinearLayout{4178de70 V.E..... ... 0,473-480,521 #7f0b0087 app:id/llSeconds}
+                android.widget.TextView{41801ff0 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{4183b110 V.ED.... ... 240,0-480,33 #7f0b0088 app:id/tvSeconds}
+              android.widget.LinearLayout{414a5ef8 V.E..... ... 41,536-438,690 #7f0b0089 app:id/llFabList}
+                android.widget.LinearLayout{41bae938 V.E..... ... 8,23-269,121 #7f0b008a app:id/llNextParty}
+                  android.widget.TextView{4145c838 V.ED.... ... 10,8-250,49 #7f0b008b app:id/tvNextParty}
+                  android.widget.TextView{41a34408 V.ED.... ... 8,49-253,90 #7f0b008c app:id/tvWhenNextParty}
+                android.support.design.widget.FloatingActionButton{4142e978 VFED..C. ... 269,8-389,146 #7f0b008d app:id/fabDgLijst}
+              android.widget.LinearLayout{4143aa68 V.E..... ... 0,695-480,744 #7f0b008e app:id/llDatumGeval}
+                android.widget.TextView{417c00e8 V.ED.... ... 8,8-240,41 #7f0b008f app:id/tvWhen}
+                android.widget.TextView{417e9190 V.ED.... ... 240,8-472,41 #7f0b0090 app:id/tvWhat}
+
+  ACTIVITY nl.whitedove.agecalculator/.MainActivity 417c8370 pid=(not running)
+
+  ACTIVITY nl.whitedove.agecalculator/.MainActivity 416f4a30 pid=5565
+    Local FragmentActivity 41424500 State:
+      mCreated=truemResumed=false mStopped=true mReallyStopped=true
+      mLoadersStarted=true
+    Active Fragments in 4141c2c8:
+      #0: null
+    FragmentManager misc state:
+      mHost=android.support.v4.app.FragmentActivity$HostCallbacks@414efab8
+      mContainer=android.support.v4.app.FragmentActivity$HostCallbacks@414efab8
+      mCurState=2 mStateSaved=true mDestroyed=false
+      mAvailIndices: [0]
+    View Hierarchy:
+      com.android.internal.policy.impl.PhoneWindow$DecorView{41466758 I.E..... ... 0,0-480,782}
+        android.widget.LinearLayout{41788520 V.E..... ... 0,0-480,782}
+          android.view.ViewStub{4143e4b8 G.E..... ... 0,0-0,0 #1020366}
+          android.widget.FrameLayout{4177e418 V.ED.... ... 0,38-480,782 #1020002 android:id/content}
+            android.widget.RelativeLayout{41437d18 V.E..V.. ... 0,0-480,744 #7f0b006d app:id/rlMain}
+              android.widget.TextView{41485e48 V.ED.... ... 0,0-480,95}
+              android.widget.LinearLayout{41796b78 V.E..... ... 0,0-480,215 #7f0b006e app:id/llDate}
+                android.widget.TextView{41789358 V.ED.... ... 2,113-210,200 #7f0b006f app:id/tvDate}
+                android.widget.ImageView{414454e0 V.ED..C. ... 210,120-282,192 #7f0b0070 app:id/ivDate}
+                android.widget.TextView{417f1f30 V.ED.... ... 282,113-405,200 #7f0b0071 app:id/tvTime}
+                android.widget.ImageView{4147cfa8 V.ED..C. ... 405,120-477,192 #7f0b0072 app:id/ivTime}
+              android.widget.LinearLayout{417975e0 V.E..... ... 0,215-480,275 #7f0b0073 app:id/llYmd}
+                android.widget.TextView{41823248 V.ED.... ... 81,8-132,45 #7f0b0074 app:id/tvY}
+                android.widget.TextView{41baef28 V.ED.... ... 132,8-193,45 #7f0b0075 app:id/tvM}
+                android.widget.TextView{414386e8 V.ED.... ... 193,8-235,45 #7f0b0076 app:id/tvW}
+                android.widget.TextView{414720a8 V.ED.... ... 235,8-272,45 #7f0b0077 app:id/tvD}
+                android.widget.TextView{4149e228 V.ED.... ... 272,8-309,45 #7f0b0078 app:id/tvH}
+                android.widget.TextView{414a56f8 V.ED.... ... 309,8-355,45 #7f0b0079 app:id/tvMi}
+                android.widget.TextView{417a2ab0 V.ED.... ... 355,8-399,45 #7f0b007a app:id/tvS}
+              android.widget.LinearLayout{41836d40 V.E..... ... 0,275-480,308 #7f0b007b app:id/llYears}
+                android.widget.TextView{41482ae8 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{41961e20 V.ED.... ... 240,0-480,33 #7f0b007c app:id/tvYears}
+              android.widget.LinearLayout{4143a2c8 V.E..... ... 0,308-480,341 #7f0b007d app:id/llMonths}
+                android.widget.TextView{41438dc8 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{414736d8 V.ED.... ... 240,0-480,33 #7f0b007e app:id/tvMonths}
+              android.widget.LinearLayout{41467f98 V.E..... ... 0,341-480,374 #7f0b007f app:id/llWeeks}
+                android.widget.TextView{414746d0 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{41478598 V.ED.... ... 240,0-480,33 #7f0b0080 app:id/tvWeeks}
+              android.widget.LinearLayout{4147db70 V.E..... ... 0,374-480,407 #7f0b0081 app:id/llDays}
+                android.widget.TextView{416dcd00 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{41834158 V.ED.... ... 240,0-480,33 #7f0b0082 app:id/tvDays}
+              android.widget.LinearLayout{414a53f0 V.E..... ... 0,407-480,440 #7f0b0083 app:id/llHours}
+                android.widget.TextView{41a4b7f8 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{41481b58 V.ED.... ... 240,0-480,33 #7f0b0084 app:id/tvHours}
+              android.widget.LinearLayout{416b9930 V.E..... ... 0,440-480,473 #7f0b0085 app:id/llMinutes}
+                android.widget.TextView{41a13698 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{414781f8 V.ED.... ... 240,0-480,33 #7f0b0086 app:id/tvMinutes}
+              android.widget.LinearLayout{4178a690 V.E..... ... 0,473-480,521 #7f0b0087 app:id/llSeconds}
+                android.widget.TextView{4147c848 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{4197a2f0 V.ED.... ... 240,0-480,33 #7f0b0088 app:id/tvSeconds}
+              android.widget.LinearLayout{41439fb8 V.E..... ... 44,536-436,690 #7f0b0089 app:id/llFabList}
+                android.widget.LinearLayout{4148c6c8 V.E..... ... 8,23-264,121 #7f0b008a app:id/llNextParty}
+                  android.widget.TextView{419ef410 V.ED.... ... 8,8-248,49 #7f0b008b app:id/tvNextParty}
+                  android.widget.TextView{4179b0b0 V.ED.... ... 37,49-219,90 #7f0b008c app:id/tvWhenNextParty}
+                android.support.design.widget.FloatingActionButton{4142c430 VFED..C. ... 264,8-384,146 #7f0b008d app:id/fabDgLijst}
+              android.widget.LinearLayout{4149a088 V.E..... ... 0,695-480,744 #7f0b008e app:id/llDatumGeval}
+                android.widget.TextView{41a0a200 V.ED.... ... 8,8-240,41 #7f0b008f app:id/tvWhen}
+                android.widget.TextView{41af1a68 V.ED.... ... 240,8-472,41 #7f0b0090 app:id/tvWhat}
+
+  ACTIVITY nl.whitedove.agecalculator/.MainActivity 41649808 pid=(not running)
+
+  ACTIVITY nl.whitedove.agecalculator/.MainActivity 4161fc00 pid=5565
+    Local FragmentActivity 4182c6c8 State:
+      mCreated=truemResumed=false mStopped=true mReallyStopped=true
+      mLoadersStarted=true
+    Active Fragments in 4182c930:
+      #0: null
+    FragmentManager misc state:
+      mHost=android.support.v4.app.FragmentActivity$HostCallbacks@4182c8f8
+      mContainer=android.support.v4.app.FragmentActivity$HostCallbacks@4182c8f8
+      mCurState=2 mStateSaved=true mDestroyed=false
+      mAvailIndices: [0]
+    View Hierarchy:
+      com.android.internal.policy.impl.PhoneWindow$DecorView{41b967c0 I.E..... ... 0,0-480,782}
+        android.widget.LinearLayout{41b96db8 V.E..... ... 0,0-480,782}
+          android.view.ViewStub{41b97238 G.E..... ... 0,0-0,0 #1020366}
+          android.widget.FrameLayout{41b98508 V.ED.... ... 0,38-480,782 #1020002 android:id/content}
+            android.widget.RelativeLayout{41b9a058 V.E..V.. ... 0,0-480,744 #7f0b006d app:id/rlMain}
+              android.widget.TextView{41b9a7e8 V.ED.... ... 0,0-480,95}
+              android.widget.LinearLayout{41b9c088 V.E..... ... 0,0-480,215 #7f0b006e app:id/llDate}
+                android.widget.TextView{41b9cbc8 V.ED.... ... 2,113-210,200 #7f0b006f app:id/tvDate}
+                android.widget.ImageView{41b9d030 V.ED..C. ... 210,120-282,192 #7f0b0070 app:id/ivDate}
+                android.widget.TextView{41b9d328 V.ED.... ... 282,113-405,200 #7f0b0071 app:id/tvTime}
+                android.widget.ImageView{41b9e108 V.ED..C. ... 405,120-477,192 #7f0b0072 app:id/ivTime}
+              android.widget.LinearLayout{41b9e398 V.E..... ... 0,215-480,275 #7f0b0073 app:id/llYmd}
+                android.widget.TextView{41b9e778 V.ED.... ... 88,8-139,45 #7f0b0074 app:id/tvY}
+                android.widget.TextView{41b9ebb8 V.ED.... ... 139,8-185,45 #7f0b0075 app:id/tvM}
+                android.widget.TextView{41bcae30 V.ED.... ... 185,8-227,45 #7f0b0076 app:id/tvW}
+                android.widget.TextView{41bcb270 V.ED.... ... 227,8-264,45 #7f0b0077 app:id/tvD}
+                android.widget.TextView{41bcb6b0 V.ED.... ... 264,8-301,45 #7f0b0078 app:id/tvH}
+                android.widget.TextView{41a51718 V.ED.... ... 301,8-347,45 #7f0b0079 app:id/tvMi}
+                android.widget.TextView{41a51b38 V.ED.... ... 347,8-391,45 #7f0b007a app:id/tvS}
+              android.widget.LinearLayout{41a51f78 V.E..... ... 0,275-480,308 #7f0b007b app:id/llYears}
+                android.widget.TextView{41ba0378 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{41ba06a8 V.ED.... ... 240,0-480,33 #7f0b007c app:id/tvYears}
+              android.widget.LinearLayout{41ba0ae8 V.E..... ... 0,308-480,341 #7f0b007d app:id/llMonths}
+                android.widget.TextView{41ba5d08 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{41ba5fa8 V.ED.... ... 240,0-480,33 #7f0b007e app:id/tvMonths}
+              android.widget.LinearLayout{41ba6330 V.E..... ... 0,341-480,374 #7f0b007f app:id/llWeeks}
+                android.widget.TextView{41ba6738 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{417af038 V.ED.... ... 240,0-480,33 #7f0b0080 app:id/tvWeeks}
+              android.widget.LinearLayout{417af478 V.E..... ... 0,374-480,407 #7f0b0081 app:id/llDays}
+                android.widget.TextView{417af880 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{417f6628 V.ED.... ... 240,0-480,33 #7f0b0082 app:id/tvDays}
+              android.widget.LinearLayout{417f69b0 V.E..... ... 0,407-480,440 #7f0b0083 app:id/llHours}
+                android.widget.TextView{417f6db8 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{41983a90 V.ED.... ... 240,0-480,33 #7f0b0084 app:id/tvHours}
+              android.widget.LinearLayout{41983d30 V.E..... ... 0,440-480,473 #7f0b0085 app:id/llMinutes}
+                android.widget.TextView{41984098 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{419844b0 V.ED.... ... 240,0-480,33 #7f0b0086 app:id/tvMinutes}
+              android.widget.LinearLayout{41966820 V.E..... ... 0,473-480,521 #7f0b0087 app:id/llSeconds}
+                android.widget.TextView{41966bf8 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{41967038 V.ED.... ... 240,0-480,33 #7f0b0088 app:id/tvSeconds}
+              android.widget.LinearLayout{41967478 V.E..... ... 44,536-436,690 #7f0b0089 app:id/llFabList}
+                android.widget.LinearLayout{41447040 V.E..... ... 8,23-264,121 #7f0b008a app:id/llNextParty}
+                  android.widget.TextView{41447348 V.ED.... ... 8,8-248,49 #7f0b008b app:id/tvNextParty}
+                  android.widget.TextView{41447788 V.ED.... ... 14,49-242,90 #7f0b008c app:id/tvWhenNextParty}
+                android.support.design.widget.FloatingActionButton{419a87f0 VFED..C. ... 264,8-384,146 #7f0b008d app:id/fabDgLijst}
+              android.widget.LinearLayout{4180d268 V.E..... ... 0,695-480,744 #7f0b008e app:id/llDatumGeval}
+                android.widget.TextView{4180d768 V.ED.... ... 8,8-240,41 #7f0b008f app:id/tvWhen}
+                android.widget.TextView{41bacff8 V.ED.... ... 240,8-472,41 #7f0b0090 app:id/tvWhat}
+
+  ACTIVITY nl.whitedove.agecalculator/.MainActivity 42301ca8 pid=(not running)
+
+  ACTIVITY nl.whitedove.agecalculator/.MainActivity 41ff7da0 pid=5565
+    Local FragmentActivity 419d9e00 State:
+      mCreated=truemResumed=false mStopped=true mReallyStopped=true
+      mLoadersStarted=true
+    Active Fragments in 419da098:
+      #0: null
+    FragmentManager misc state:
+      mHost=android.support.v4.app.FragmentActivity$HostCallbacks@419da060
+      mContainer=android.support.v4.app.FragmentActivity$HostCallbacks@419da060
+      mCurState=2 mStateSaved=true mDestroyed=false
+      mAvailIndices: [0]
+    View Hierarchy:
+      com.android.internal.policy.impl.PhoneWindow$DecorView{419daf98 I.E..... ... 0,0-480,782}
+        android.widget.LinearLayout{419db5c8 V.E..... ... 0,0-480,782}
+          android.view.ViewStub{419dc0e0 G.E..... ... 0,0-0,0 #1020366}
+          android.widget.FrameLayout{419dc2f0 V.ED.... ... 0,38-480,782 #1020002 android:id/content}
+            android.widget.RelativeLayout{419dca28 V.E..V.. ... 0,0-480,744 #7f0b006d app:id/rlMain}
+              android.widget.TextView{419dd318 V.ED.... ... 0,0-480,95}
+              android.widget.LinearLayout{419de138 V.E..... ... 0,0-480,215 #7f0b006e app:id/llDate}
+                android.widget.TextView{419de560 V.ED.... ... 2,113-210,200 #7f0b006f app:id/tvDate}
+                android.widget.ImageView{419de9f8 V.ED..C. ... 210,120-282,192 #7f0b0070 app:id/ivDate}
+                android.widget.TextView{419ded00 V.ED.... ... 282,113-405,200 #7f0b0071 app:id/tvTime}
+                android.widget.ImageView{419df150 V.ED..C. ... 405,120-477,192 #7f0b0072 app:id/ivTime}
+              android.widget.LinearLayout{419df458 V.E..... ... 0,215-480,275 #7f0b0073 app:id/llYmd}
+                android.widget.TextView{419df880 V.ED.... ... 103,8-139,45 #7f0b0074 app:id/tvY}
+                android.widget.TextView{419dfcd0 V.ED.... ... 139,8-185,45 #7f0b0075 app:id/tvM}
+                android.widget.TextView{419e0120 V.ED.... ... 185,8-227,45 #7f0b0076 app:id/tvW}
+                android.widget.TextView{419e0570 V.ED.... ... 227,8-264,45 #7f0b0077 app:id/tvD}
+                android.widget.TextView{419e09c0 V.ED.... ... 264,8-301,45 #7f0b0078 app:id/tvH}
+                android.widget.TextView{419e0e10 V.ED.... ... 301,8-347,45 #7f0b0079 app:id/tvMi}
+                android.widget.TextView{419e1260 V.ED.... ... 347,8-376,45 #7f0b007a app:id/tvS}
+              android.widget.LinearLayout{419e16b0 V.E..... ... 0,275-480,308 #7f0b007b app:id/llYears}
+                android.widget.TextView{419e1ad8 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{419e1f28 V.ED.... ... 240,0-480,33 #7f0b007c app:id/tvYears}
+              android.widget.LinearLayout{419e2378 V.E..... ... 0,308-480,341 #7f0b007d app:id/llMonths}
+                android.widget.TextView{419e27a0 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{419e2bf0 V.ED.... ... 240,0-480,33 #7f0b007e app:id/tvMonths}
+              android.widget.LinearLayout{419e3040 V.E..... ... 0,341-480,374 #7f0b007f app:id/llWeeks}
+                android.widget.TextView{419e3468 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{419e38b8 V.ED.... ... 240,0-480,33 #7f0b0080 app:id/tvWeeks}
+              android.widget.LinearLayout{419e3d08 V.E..... ... 0,374-480,407 #7f0b0081 app:id/llDays}
+                android.widget.TextView{419e4130 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{419e4580 V.ED.... ... 240,0-480,33 #7f0b0082 app:id/tvDays}
+              android.widget.LinearLayout{419e49d0 V.E..... ... 0,407-480,440 #7f0b0083 app:id/llHours}
+                android.widget.TextView{419e4df8 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{419e5248 V.ED.... ... 240,0-480,33 #7f0b0084 app:id/tvHours}
+              android.widget.LinearLayout{419e5698 V.E..... ... 0,440-480,473 #7f0b0085 app:id/llMinutes}
+                android.widget.TextView{419e5ac0 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{419e5f10 V.ED.... ... 240,0-480,33 #7f0b0086 app:id/tvMinutes}
+              android.widget.LinearLayout{419e6360 V.E..... ... 0,473-480,521 #7f0b0087 app:id/llSeconds}
+                android.widget.TextView{419e6788 V.ED.... ... 0,0-240,33}
+                android.widget.TextView{419e6bd8 V.ED.... ... 240,0-480,33 #7f0b0088 app:id/tvSeconds}
+              android.widget.LinearLayout{419e7028 V.E..... ... 0,536-480,687 #7f0b0089 app:id/llFabList}
+                android.widget.LinearLayout{419e7450 V.E..... ... 8,23-391,121 #7f0b008a app:id/llNextParty}
+                  android.widget.TextView{419e7778 V.ED.... ... 8,8-375,49 #7f0b008b app:id/tvNextParty}
+                  android.widget.TextView{419e7bc8 V.ED.... ... 81,49-301,90 #7f0b008c app:id/tvWhenNextParty}
+                android.support.design.widget.FloatingActionButton{419e80b0 VFED..C. ... 391,8-508,143 #7f0b008d app:id/fabDgLijst}
+              android.widget.LinearLayout{419ea528 V.E..... ... 0,667-480,744 #7f0b008e app:id/llDatumGeval}
+                android.widget.TextView{419eaa40 V.ED.... ... 8,8-240,69 #7f0b008f app:id/tvWhen}
+                android.widget.TextView{419eae90 V.ED.... ... 240,22-472,55 #7f0b0090 app:id/tvWhat}

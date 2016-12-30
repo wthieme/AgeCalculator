@@ -1,0 +1,37 @@
+<resources>
+    <string name="YmdHms">ymwdhms></string>
+    <string name="Years">Years: </string>
+    <string name="Months">Months: </string>
+    <string name="Weeks">Weeks: </string>
+    <string name="Days">Days: </string>
+    <string name="Hours">Hours: </string>
+    <string name="Minutes">Minutes: </string>
+    <string name="Seconds">Seconds: </string>
+    <string name="Event">Event</string>
+    <string name="Date">Date</string>
+    <string name="Time">Time</string>
+    <string name="Totals">Totals</string>
+    <string name="app_name">Age Calculator</string>
+    <string name="next_party" formatted="false">Next: %s</string>
+    <string name="Age" formatted="false">Age: %s %ss</string>
+    <string name="DateNotInPast">Date must be in the past</string>
+    <string name="DateMustBeAfter">Date must be after %s</string>
+    <string name="s">s</string>
+    <string name="mi">m</string>
+    <string name="h">h</string>
+    <string name="d">d</string>
+    <string name="w">w</string>
+    <string name="m">mi</string>
+    <string name="y">y</string>
+    <string name="time_picker">Time picker</string>
+    <string name="date_picker">Date picker</string>
+    <string name="year">year</string>
+    <string name="month">month</string>
+    <string name="day">day</string>
+    <string name="hour">hour</string>
+    <string name="minute">minute</string>
+    <string name="Dates">Dates for</string>
+    <string name="naam">Naam</string>
+    <string name="vertbar">|</string>
+
+</resources>
