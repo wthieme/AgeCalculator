@@ -8,6 +8,7 @@ class Persoon {
     private String naam;
     private DateTime gebdatum;
     private Boolean geselecteerd;
+    private Boolean gevinkt;
     private Boolean getoond;
 
     public int getId() {
@@ -48,5 +49,13 @@ class Persoon {
 
     void setGetoond(Boolean getoond) {
         this.getoond = getoond;
+    }
+
+    Boolean getGevinkt() {
+        return gevinkt;
+    }
+
+    void setGevinkt(Boolean gevinkt) {
+        this.gevinkt = gevinkt;
     }
 }

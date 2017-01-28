@@ -21,24 +21,37 @@
         android:textSize="24sp"
         android:textStyle="bold|italic" />
 
+    <ImageView
+        android:id="@+id/ivmore"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/menu"
+        android:onClick="moreClick"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:src="@drawable/cmenu" />
+
     <TextView
         android:id="@+id/tvBarLeft1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/etName1"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/etName1"
         android:layout_marginLeft="2dp"
         android:layout_marginStart="2dp"
         android:text="@string/vertbar"
-        android:textColor="@color/colorText"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="36dp"
         android:textStyle="bold"
         tools:ignore="SpUsage" />
 
     <EditText
         android:id="@+id/etName1"
-        android:layout_width="150dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvAgeCalc"
         android:layout_marginLeft="10dp"
@@ -51,6 +64,18 @@
         android:textColor="@color/colorText"
         android:textSize="14sp" />
 
+    <CheckBox
+        android:id="@+id/cb1"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/etName1"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/etName1"
+        android:layout_toRightOf="@+id/etName1"
+        android:theme="@style/checkBoxStyle" />
+
     <ImageView
         android:id="@+id/ivDate1"
         android:layout_width="wrap_content"
@@ -58,8 +83,8 @@
         android:layout_alignTop="@id/etName1"
         android:layout_marginLeft="5dp"
         android:layout_marginStart="5dp"
-        android:layout_toEndOf="@+id/etName1"
-        android:layout_toRightOf="@+id/etName1"
+        android:layout_toEndOf="@+id/cb1"
+        android:layout_toRightOf="@+id/cb1"
         android:contentDescription="@string/date_picker"
         android:src="@drawable/calendar" />
 
@@ -70,7 +95,9 @@
         android:layout_alignTop="@+id/etName1"
         android:layout_toEndOf="@+id/ivDate1"
         android:layout_toRightOf="@+id/ivDate1"
-        android:padding="15dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="15dp"
         android:text="@string/Date"
         android:textColor="@color/colorText"
         android:textSize="14sp"
@@ -80,13 +107,13 @@
         android:id="@+id/tvBarRight1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/etName1"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignBottom="@id/etName1"
-        android:layout_marginRight="2dp"
         android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
         android:text="@string/vertbar"
-        android:textColor="@color/colorText"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="36dp"
         android:textStyle="bold"
         tools:ignore="SpUsage" />
@@ -95,20 +122,20 @@
         android:id="@+id/tvBarLeft2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/etName2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/etName2"
         android:layout_marginLeft="2dp"
         android:layout_marginStart="2dp"
         android:text="@string/vertbar"
-        android:textColor="@color/colorText"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="36dp"
         android:textStyle="bold"
         tools:ignore="SpUsage" />
 
     <EditText
         android:id="@+id/etName2"
-        android:layout_width="150dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etName1"
         android:layout_marginLeft="10dp"
@@ -121,6 +148,19 @@
         android:textColor="@color/colorText"
         android:textSize="14sp" />
 
+    <CheckBox
+        android:id="@+id/cb2"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/etName2"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/etName2"
+        android:layout_toRightOf="@+id/etName2"
+        android:textColor="@color/colorText"
+        android:theme="@style/checkBoxStyle" />
+
     <ImageView
         android:id="@+id/ivDate2"
         android:layout_width="wrap_content"
@@ -128,8 +168,8 @@
         android:layout_alignTop="@id/etName2"
         android:layout_marginLeft="5dp"
         android:layout_marginStart="5dp"
-        android:layout_toEndOf="@+id/etName2"
-        android:layout_toRightOf="@+id/etName2"
+        android:layout_toEndOf="@+id/cb2"
+        android:layout_toRightOf="@+id/cb2"
         android:contentDescription="@string/date_picker"
         android:src="@drawable/calendar" />
 
@@ -140,7 +180,9 @@
         android:layout_alignTop="@+id/etName2"
         android:layout_toEndOf="@+id/ivDate2"
         android:layout_toRightOf="@+id/ivDate2"
-        android:padding="15dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="15dp"
         android:text="@string/Date"
         android:textColor="@color/colorText"
         android:textSize="14sp"
@@ -150,13 +192,13 @@
         android:id="@+id/tvBarRight2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/etName2"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignBottom="@id/etName2"
-        android:layout_marginRight="2dp"
         android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
         android:text="@string/vertbar"
-        android:textColor="@color/colorText"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="36dp"
         android:textStyle="bold"
         tools:ignore="SpUsage" />
@@ -165,20 +207,20 @@
         android:id="@+id/tvBarLeft3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/etName3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/etName3"
         android:layout_marginLeft="2dp"
         android:layout_marginStart="2dp"
         android:text="@string/vertbar"
-        android:textColor="@color/colorText"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="36dp"
         android:textStyle="bold"
         tools:ignore="SpUsage" />
 
     <EditText
         android:id="@+id/etName3"
-        android:layout_width="150dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etName2"
         android:layout_marginLeft="10dp"
@@ -191,6 +233,19 @@
         android:textColor="@color/colorText"
         android:textSize="14sp" />
 
+    <CheckBox
+        android:id="@+id/cb3"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/etName3"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/etName3"
+        android:layout_toRightOf="@+id/etName3"
+        android:textColor="@color/colorText"
+        android:theme="@style/checkBoxStyle" />
+
     <ImageView
         android:id="@+id/ivDate3"
         android:layout_width="wrap_content"
@@ -198,8 +253,8 @@
         android:layout_alignTop="@id/etName3"
         android:layout_marginLeft="5dp"
         android:layout_marginStart="5dp"
-        android:layout_toEndOf="@+id/etName3"
-        android:layout_toRightOf="@+id/etName3"
+        android:layout_toEndOf="@+id/cb3"
+        android:layout_toRightOf="@+id/cb3"
         android:contentDescription="@string/date_picker"
         android:src="@drawable/calendar" />
 
@@ -210,7 +265,9 @@
         android:layout_alignTop="@+id/etName3"
         android:layout_toEndOf="@+id/ivDate3"
         android:layout_toRightOf="@+id/ivDate3"
-        android:padding="15dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="15dp"
         android:text="@string/Date"
         android:textColor="@color/colorText"
         android:textSize="14sp"
@@ -220,23 +277,192 @@
         android:id="@+id/tvBarRight3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/etName2"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignBottom="@id/etName3"
-        android:layout_marginRight="2dp"
         android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
         android:text="@string/vertbar"
-        android:textColor="@color/colorText"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="36dp"
         android:textStyle="bold"
         tools:ignore="SpUsage" />
 
     <TextView
+        android:id="@+id/tvBarLeft4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/etName4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="2dp"
+        android:layout_marginStart="2dp"
+        android:text="@string/vertbar"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="36dp"
+        android:textStyle="bold"
+        tools:ignore="SpUsage" />
+
+    <EditText
+        android:id="@+id/etName4"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etName3"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edit_text"
+        android:inputType="text"
+        android:maxLength="10"
+        android:maxLines="1"
+        android:textColor="@color/colorText"
+        android:textSize="14sp" />
+
+    <CheckBox
+        android:id="@+id/cb4"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/etName4"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/etName4"
+        android:layout_toRightOf="@+id/etName4"
+        android:theme="@style/checkBoxStyle" />
+
+    <ImageView
+        android:id="@+id/ivDate4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/etName4"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_toEndOf="@+id/cb4"
+        android:layout_toRightOf="@+id/cb4"
+        android:contentDescription="@string/date_picker"
+        android:src="@drawable/calendar" />
+
+    <TextView
+        android:id="@+id/tvDate4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/etName4"
+        android:layout_toEndOf="@+id/ivDate4"
+        android:layout_toRightOf="@+id/ivDate4"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="15dp"
+        android:text="@string/Date"
+        android:textColor="@color/colorText"
+        android:textSize="14sp"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/tvBarRight4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/etName4"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:text="@string/vertbar"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="36dp"
+        android:textStyle="bold"
+        tools:ignore="SpUsage" />
+
+    <TextView
+        android:id="@+id/tvBarLeft5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/etName5"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="2dp"
+        android:layout_marginStart="2dp"
+        android:text="@string/vertbar"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="36dp"
+        android:textStyle="bold"
+        tools:ignore="SpUsage" />
+
+    <EditText
+        android:id="@+id/etName5"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etName4"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edit_text"
+        android:inputType="text"
+        android:maxLength="10"
+        android:maxLines="1"
+        android:textColor="@color/colorText"
+        android:textSize="14sp" />
+
+    <CheckBox
+        android:id="@+id/cb5"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/etName5"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/etName5"
+        android:layout_toRightOf="@+id/etName5"
+        android:theme="@style/checkBoxStyle" />
+
+    <ImageView
+        android:id="@+id/ivDate5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/etName5"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_toEndOf="@+id/cb5"
+        android:layout_toRightOf="@+id/cb5"
+        android:contentDescription="@string/date_picker"
+        android:src="@drawable/calendar" />
+
+    <TextView
+        android:id="@+id/tvDate5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/etName5"
+        android:layout_toEndOf="@+id/ivDate5"
+        android:layout_toRightOf="@+id/ivDate5"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="15dp"
+        android:text="@string/Date"
+        android:textColor="@color/colorText"
+        android:textSize="14sp"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/tvBarRight5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/etName5"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:text="@string/vertbar"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="36dp"
+        android:textStyle="bold"
+        tools:ignore="SpUsage" />
+
+
+    <TextView
         android:id="@+id/tvNaam"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etName3"
-        android:layout_marginTop="10dp"
+        android:layout_below="@+id/etName5"
+        android:layout_marginTop="15dp"
         android:gravity="center"
         android:text="@string/naam"
         android:textColor="@color/colorPrimaryDark"
@@ -618,7 +844,6 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fabDgLijst"
             android:layout_width="wrap_content"
@@ -631,13 +856,12 @@
             app:useCompatPadding="true" />
     </LinearLayout>
 
-
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/llDatumGeval"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/color1"
+        android:background="@color/colorText"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
         android:padding="5dp"

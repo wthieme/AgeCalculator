@@ -35,7 +35,7 @@ public class ListDatesActivity extends Activity {
 
     private void ToonData() {
         TextView tvDateTime = (TextView) findViewById(R.id.tvDateTime);
-        String sDate = Helper.dtmFormat.print(Helper.peildatum);
+        String sDate = "TODO";
         tvDateTime.setText(sDate);
         if (Helper.dgLijst == null || Helper.dgLijst.size() == 0) return;
 

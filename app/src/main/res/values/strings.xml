@@ -33,5 +33,10 @@
     <string name="Dates">Dates for</string>
     <string name="naam">Naam</string>
     <string name="vertbar">|</string>
+    <string name="menu">Menu</string>
+    <string name="Add">Add</string>
+    <string name="Remove">Remove</string>
+    <string name="MaxPersonen">Maximum numer of persons is %s</string>
+    <string name="MinPersonen">You cannot remove the last person</string>
 
 </resources>

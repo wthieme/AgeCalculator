@@ -27,10 +27,8 @@ class Helper {
     static final DateTimeFormatter dFormat = DateTimeFormat.forPattern("dd-MM-yyyy");
     static final DateTimeFormatter tFormatHhMmSs = DateTimeFormat.forPattern("HH:mm:ss");
     static final int Duration = 10000;
-    static final int maxRijen = 3;
+    static final int maxRijen = 5;
     static ArrayList<DatumGeval> dgLijst = new ArrayList<>();
-    static DateTime peildatum;
-    static ArrayList<Persoon> Personen;
     static int Nr = 1;
 
     private static void Log(String log) {
@@ -66,24 +64,32 @@ class Helper {
         return String.format("%sG", aantal / 1000000000);
     }
 
-    static void MakeDgList() {
+    static void MakeDgList(ArrayList<Persoon> personen) {
 
         if (dgLijst != null && dgLijst.size() > 0) return;
         DateTime today = DateTime.now();
-        DateTime thatDay = peildatum;
+        DateTime thatDay = today;
+        for (Persoon persoon : personen) {
+            thatDay = thatDay.minus(today.getMillis() - persoon.getGebdatum().getMillis());
+        }
         dgLijst = new ArrayList<>();
         int factor = today.isBefore(thatDay) ? -1 : 1;
         DateTime d;
         DatumGeval dg;
 
-        for (int y = 0; y < 107; y++) {
+        for (int y = 0; y < 505; y++) {
             d = thatDay.plusYears(factor * y);
             if (today.isAfter(d)) continue;
             dg = new DatumGeval(Helper.eenheidType.year, d, y);
             dgLijst.add(dg);
         }
 
-        int[] maanden = {1, 10, 100, 200, 400, 500, 700, 800, 1000, 1100};
+        int[] maanden = {1, 10, 100, 200, 400, 500, 700, 800,
+                1000, 1100, 1300, 1400, 1600, 1700, 1900,
+                2000, 2200, 2300, 2500, 2600, 2800, 2900,
+                3100, 3200, 3400, 3500, 3700, 3800,
+                4000, 4100, 4300, 4400, 4600, 4700, 4900};
+
         for (int maand : maanden) {
             d = thatDay.plusMonths(factor * maand);
             if (today.isAfter(d)) continue;
@@ -96,7 +102,13 @@ class Helper {
                 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900,
                 3000, 3100, 3200, 3300, 3400, 3500, 3600, 3700, 3800, 3900,
                 4000, 4100, 4200, 4300, 4400, 4500, 4600, 4700, 4800, 4900,
-                5000, 5100, 5200, 5300, 5400, 5500};
+                5000, 5100, 5200, 5300, 5400, 5500, 5600, 5700, 5800, 5900,
+                6000, 6100, 6200, 6300, 6400, 6500, 6600, 6700, 6800, 6900,
+                7000, 7100, 7200, 7300, 7400, 7500, 7600, 7700, 7800, 7900,
+                8000, 8100, 8200, 8300, 8400, 8500, 8600, 8700, 8800, 8900,
+                9000, 9100, 9200, 9300, 9400, 9500, 9600, 9700, 9800, 9900,
+                10000, 11000, 12000, 13000, 14000, 15000, 16000, 17000, 18000, 19000,
+                20000, 21000, 22000, 23000, 24000, 25000, 26000, 27000, 28000, 29000};
 
         for (int week : weken) {
             d = thatDay.plusWeeks(factor * week);
@@ -124,7 +136,7 @@ class Helper {
             dgLijst.add(dg);
         }
 
-        int[] minuten = {100, 1000, 10000, 100000, 1000000, 10000000, 20000000, 40000000, 50000000};
+        int[] minuten = {100, 1000, 10000, 100000, 1000000, 10000000, 20000000, 40000000, 50000000, 70000000, 80000000, 100000000, 110000000, 130000000, 140000000, 160000000, 170000000, 190000000, 200000000};
         for (int minuut : minuten) {
             d = thatDay.plusMinutes(factor * minuut);
             if (today.isAfter(d)) continue;
