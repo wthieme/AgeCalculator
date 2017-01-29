@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="200dp"
+    android:layout_height="300dp"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="@string/PersonsShow"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <CheckBox
+        android:id="@+id/cbShow1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/Person1"
+        android:textColor="@color/colorText"
+        android:textSize="16sp"
+        android:theme="@style/checkBoxStyle" />
+
+    <CheckBox
+        android:id="@+id/cbShow2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/Person2"
+        android:textColor="@color/colorText"
+        android:textSize="16sp"
+        android:theme="@style/checkBoxStyle" />
+
+    <CheckBox
+        android:id="@+id/cbShow3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/Person3"
+        android:textColor="@color/colorText"
+        android:textSize="16sp"
+        android:theme="@style/checkBoxStyle" />
+
+    <CheckBox
+        android:id="@+id/cbShow4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/Person4"
+        android:textColor="@color/colorText"
+        android:textSize="16sp"
+        android:theme="@style/checkBoxStyle" />
+
+    <CheckBox
+        android:id="@+id/cbShow5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/Person5"
+        android:textColor="@color/colorText"
+        android:textSize="16sp"
+        android:theme="@style/checkBoxStyle" />
+
+    <Button
+        android:id="@+id/btOk"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorButton"
+        android:clickable="true"
+        android:layout_gravity="center"
+        android:text="@string/OK"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+</LinearLayout>

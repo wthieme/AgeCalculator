@@ -3,6 +3,7 @@ package nl.whitedove.agecalculator;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.TimePickerDialog.OnTimeSetListener;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -64,6 +65,7 @@ public class MainActivity extends FragmentActivity {
         InitDateListeners();
         InitFabs();
         SetPersons();
+        SetNaam();
         InitTimer();
     }
 
@@ -142,37 +144,16 @@ public class MainActivity extends FragmentActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
 
-                    case R.id.add_person:
-                        AddPerson();
+                    case R.id.show_persons_dialog:
+                        ShowPersonsDialog();
                         return true;
 
-                    case R.id.remove_person:
-                        RemovePerson();
-                        return true;
                 }
                 return true;
             }
         });
 
         popup.show();
-    }
-
-    private void AddPerson() {
-        Context context = getApplicationContext();
-        int aantal = mDH.GetAantalPersonen();
-        if (aantal == Helper.maxRijen) {
-            Helper.ShowMessage(context, String.format(getString(R.string.MaxPersonen), Integer.toString(Helper.maxRijen)), true);
-            return;
-        }
-    }
-
-    private void RemovePerson() {
-        Context context = getApplicationContext();
-        int aantal = mDH.GetAantalPersonen();
-        if (aantal == 1) {
-            Helper.ShowMessage(context, getString(R.string.MinPersonen), true);
-            return;
-        }
     }
 
     private void InitEdits() {
@@ -188,14 +169,6 @@ public class MainActivity extends FragmentActivity {
 
             public void afterTextChanged(Editable s) {
                 SetNaam(etName1, 1);
-            }
-        });
-        etName1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    Helper.Nr = 1;
-                }
             }
         });
 
@@ -214,15 +187,6 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
-        etName2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    Helper.Nr = 2;
-                }
-            }
-        });
-
         final EditText etName3 = (EditText) findViewById(R.id.etName3);
         NaamToEdit(etName3, 3);
 
@@ -235,15 +199,6 @@ public class MainActivity extends FragmentActivity {
 
             public void afterTextChanged(Editable s) {
                 SetNaam(etName3, 3);
-            }
-        });
-
-        etName3.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    Helper.Nr = 3;
-                }
             }
         });
 
@@ -261,14 +216,6 @@ public class MainActivity extends FragmentActivity {
                 SetNaam(etName4, 4);
             }
         });
-        etName4.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    Helper.Nr = 4;
-                }
-            }
-        });
 
         final EditText etName5 = (EditText) findViewById(R.id.etName5);
         NaamToEdit(etName5, 5);
@@ -281,15 +228,7 @@ public class MainActivity extends FragmentActivity {
             }
 
             public void afterTextChanged(Editable s) {
-                SetNaam(etName5, 1);
-            }
-        });
-        etName1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    Helper.Nr = 5;
-                }
+                SetNaam(etName5, 5);
             }
         });
     }
@@ -316,14 +255,6 @@ public class MainActivity extends FragmentActivity {
                 SetCheck(cb1, 1);
             }
         });
-        cb1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    Helper.Nr = 1;
-                }
-            }
-        });
 
         final CheckBox cb2 = (CheckBox) findViewById(R.id.cb2);
         CheckToCheckbox(cb2, 2);
@@ -331,14 +262,6 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 SetCheck(cb2, 2);
-            }
-        });
-        cb2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    Helper.Nr = 2;
-                }
             }
         });
 
@@ -350,14 +273,6 @@ public class MainActivity extends FragmentActivity {
                 SetCheck(cb3, 3);
             }
         });
-        cb3.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    Helper.Nr = 3;
-                }
-            }
-        });
 
         final CheckBox cb4 = (CheckBox) findViewById(R.id.cb4);
         CheckToCheckbox(cb4, 4);
@@ -365,14 +280,6 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 SetCheck(cb4, 4);
-            }
-        });
-        cb4.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    Helper.Nr = 4;
-                }
             }
         });
 
@@ -384,33 +291,23 @@ public class MainActivity extends FragmentActivity {
                 SetCheck(cb5, 5);
             }
         });
-        cb5.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    Helper.Nr = 5;
-                }
-            }
-        });
     }
 
     private void CheckToCheckbox(CheckBox cb, int nr) {
-        SetBars();
         Persoon persoon = mDH.GetPersoon(nr);
         cb.setChecked(persoon.getGevinkt());
     }
 
     private void SetCheck(CheckBox cb, int nr) {
-        SetBars();
-        Helper.Nr = nr;
         Persoon persoon = mDH.GetPersoon(nr);
         Boolean checked = cb.isChecked();
         persoon.setGevinkt(checked);
         mDH.UpdatePersoon(persoon);
+        // Update de samengestelde naam
+        SetNaam();
     }
 
     private void NaamToEdit(EditText etNaam, int nr) {
-        SetBars();
         Persoon persoon = mDH.GetPersoon(nr);
         String naam = persoon.getNaam();
         etNaam.setText(naam);
@@ -419,18 +316,15 @@ public class MainActivity extends FragmentActivity {
     }
 
     private void SetNaam(EditText etNaam, int nr) {
-        SetBars();
-        Helper.Nr = nr;
         Persoon persoon = mDH.GetPersoon(nr);
         String naam = etNaam.getText().toString();
         persoon.setNaam(naam);
         mDH.UpdatePersoon(persoon);
-        TextView tvNaam = (TextView) findViewById(R.id.tvNaam);
-        tvNaam.setText(naam);
+        // Update de samengestelde naam
+        SetNaam();
     }
 
     private void DateToTextView(TextView tvDate, int nr) {
-        SetBars();
         Persoon persoon = mDH.GetPersoon(nr);
         String sDate = Helper.dtmFormat.print(persoon.getGebdatum());
         tvDate.setText(sDate);
@@ -445,7 +339,6 @@ public class MainActivity extends FragmentActivity {
     }
 
     private void SetDate(TextView tvDate, int nr, DateTime date) {
-        SetBars();
         Helper.Nr = nr;
         String sDate = Helper.dtmFormat.print(date);
         tvDate.setText(sDate);
@@ -456,6 +349,8 @@ public class MainActivity extends FragmentActivity {
 
     private void ToonLijst() {
         Intent intent = new Intent(this, ListDatesActivity.class);
+        String namen = BepaalNamen();
+        intent.putExtra("namen", namen);
         startActivity(intent);
     }
 
@@ -580,8 +475,9 @@ public class MainActivity extends FragmentActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                Helper.dgLijst.get(idx).setAnimatie(Helper.animatie.finished);
                 mAnimation = false;
+                if (Helper.dgLijst != null && Helper.dgLijst.size() > 0)
+                    Helper.dgLijst.get(idx).setAnimatie(Helper.animatie.finished);
             }
         });
 
@@ -682,9 +578,9 @@ public class MainActivity extends FragmentActivity {
                 persoon.setId(i);
                 persoon.setNaam(String.format("Naam %s", i));
                 persoon.setGebdatum(new DateTime(2000, 1, 1, 0, 0));
-                persoon.setGeselecteerd(i <= 2);
-                persoon.setGetoond(i <= 2);
-                persoon.setGevinkt(i <= 2);
+                persoon.setGeselecteerd(i == 1);
+                persoon.setGetoond(i == 1);
+                persoon.setGevinkt(i == 1);
                 mDH.UpdatePersoon(persoon);
             }
         }
@@ -757,13 +653,30 @@ public class MainActivity extends FragmentActivity {
     private void SetPersons() {
         ArrayList<Persoon> personen = mDH.GetAllePersonen();
         for (Persoon persoon : personen) {
-            SetViewVisible("tvBarLeft", persoon.getId(), persoon.getGeselecteerd() && persoon.getGetoond());
             SetViewVisible("etName", persoon.getId(), persoon.getGetoond());
             SetViewVisible("cb", persoon.getId(), persoon.getGetoond());
             SetViewVisible("ivDate", persoon.getId(), persoon.getGetoond());
             SetViewVisible("tvDate", persoon.getId(), persoon.getGetoond());
-            SetViewVisible("tvBarRight", persoon.getId(), persoon.getGeselecteerd() && persoon.getGetoond());
         }
+    }
+
+    private String BepaalNamen() {
+        ArrayList<Persoon> personen = mDH.GetAangevinktePersonen();
+        String namen = "";
+        for (Persoon persoon : personen) {
+            namen = namen + persoon.getNaam() + " + ";
+        }
+        if (namen.length() > 0) {
+            namen = namen.substring(0, namen.length() - 3);
+        }
+        return namen;
+    }
+
+    private void SetNaam() {
+        String namen = BepaalNamen();
+        TextView tv = (TextView) findViewById(R.id.tvNaam);
+        tv.setText(namen);
+        Helper.dgLijst = new ArrayList<>();
     }
 
     private void SetViewVisible(String name, int nr, boolean visible) {
@@ -776,20 +689,19 @@ public class MainActivity extends FragmentActivity {
         vw.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
-    private void SetBars() {
-        for (int i = 0; i < Helper.maxRijen; i++) {
-            SetViewVisible("tvBarLeft", i + 1, false);
-            SetViewVisible("tvBarRight", i + 1, false);
-        }
+    private void ShowPersonsDialog() {
+        PersonsDialog rd = new PersonsDialog(this);
+        rd.setCancelable(false);
 
-        String nameLeft = String.format("tvBarLeft%s", Helper.Nr);
-        int idLeft = getResources().getIdentifier(nameLeft, "id", this.getPackageName());
-        View tvBarLeft = findViewById(idLeft);
-        tvBarLeft.setVisibility(View.VISIBLE);
+        rd.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                SetPersons();
+                SetNaam();
+            }
+        });
 
-        String nameRight = String.format("tvBarRight%s", Helper.Nr);
-        int idRight = getResources().getIdentifier(nameRight, "id", this.getPackageName());
-        View tvBarRight = findViewById(idRight);
-        tvBarRight.setVisibility(View.VISIBLE);
+        rd.show();
+        rd.SetCheckboxes(mDH);
     }
 }

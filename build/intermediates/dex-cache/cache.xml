@@ -21,21 +21,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Wilhelm\AndroidStudioProjects\AgeCalculator\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
-        <dex dex="C:\Users\Wilhelm\AndroidStudioProjects\AgeCalculator\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.1.0_f87fe0d57e54e74c9f256b6eaadc680238c48421\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Wilhelm\AndroidStudioProjects\AgeCalculator\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
         <dex dex="C:\Users\Wilhelm\AndroidStudioProjects\AgeCalculator\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.1.0_a6a4b156ed610a95ac5b8f127ae62196c36ea086\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Wilhelm\AndroidStudioProjects\AgeCalculator\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="C:\Users\Wilhelm\AndroidStudioProjects\AgeCalculator\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.1.0_f87fe0d57e54e74c9f256b6eaadc680238c48421\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -52,7 +52,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="7ff53ce5d6841ef8821463f60b6d75e51c7e59a5">
+        sha1="8f154cf5fe312c1f86184fa24850d01aa2e74945">
         <dex dex="C:\Users\Wilhelm\AndroidStudioProjects\AgeCalculator\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_697e3e1897994ce6fcbc8a8cebb29accdfb39c97\classes.dex" />
     </item>
     <item
@@ -97,7 +97,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="36036eb46c450a3f7fb30b6e72deda0feaafcd58">
+        sha1="1f6f63fe6278e09a6da414699f6f4adc9a95a468">
         <dex dex="C:\Users\Wilhelm\AndroidStudioProjects\AgeCalculator\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_88cf1ab7b8e08aef98ed3f02836569a1b00791d9\classes.dex" />
     </item>
     <item

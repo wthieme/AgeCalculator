@@ -38,5 +38,13 @@
     <string name="Remove">Remove</string>
     <string name="MaxPersonen">Maximum numer of persons is %s</string>
     <string name="MinPersonen">You cannot remove the last person</string>
+    <string name="PersonsShow">Show persons</string>
+    <string name="Person1">Naam 1</string>
+    <string name="Person2">Naam 2</string>
+    <string name="Person3">Naam 3</string>
+    <string name="Person4">Naam 4</string>
+    <string name="Person5">Naam 5</string>
+    <string name="OK">OK</string>
+    <string name="ShowsHidePersons">Show/hide persons</string>
 
 </resources>

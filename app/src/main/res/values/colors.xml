@@ -6,4 +6,5 @@
     <color name="colorText">#535dc1</color>
     <color name="colorTextReverse">#FFFFFF</color>
     <color name="colorBackground">#cde9d3</color>
+    <color name="colorButton">#bbdefb</color>
 </resources>

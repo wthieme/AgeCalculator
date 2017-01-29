@@ -1,0 +1,4 @@
+Scrollview en Listview gaat niet samen. Liniair layout van maken
+Seconden toevoegen
+Afkorten. 1.000 = 1k, 1.000.000 1M
+Bij uur, minuut, seconden naast datum ook tijd tonen

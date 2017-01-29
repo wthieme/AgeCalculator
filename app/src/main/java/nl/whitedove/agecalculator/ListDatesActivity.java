@@ -23,7 +23,9 @@ public class ListDatesActivity extends Activity {
                 Terug();
             }
         });
-        ToonData();
+        Bundle extras = getIntent().getExtras();
+        String namen = extras.getString("namen");
+        ToonData(namen);
     }
 
     private void Terug() {
@@ -33,10 +35,9 @@ public class ListDatesActivity extends Activity {
         startActivity(intent);
     }
 
-    private void ToonData() {
-        TextView tvDateTime = (TextView) findViewById(R.id.tvDateTime);
-        String sDate = "TODO";
-        tvDateTime.setText(sDate);
+    private void ToonData(String namen) {
+        TextView tvNamen = (TextView) findViewById(R.id.tvNamen);
+        tvNamen.setText(namen);
         if (Helper.dgLijst == null || Helper.dgLijst.size() == 0) return;
 
         final ListView lvEigenMeldingen = (ListView) findViewById(R.id.lvDates);
