@@ -1,8 +1,6 @@
 package nl.whitedove.agecalculator;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.widget.Toast;
 
 import org.joda.time.DateTime;
@@ -67,19 +65,26 @@ class Helper {
     static void MakeDgList(ArrayList<Persoon> personen) {
 
         if (dgLijst != null && dgLijst.size() > 0) return;
+        dgLijst = new ArrayList<>();
+
         DateTime today = DateTime.now();
         DateTime thatDay = today;
-        for (Persoon persoon : personen) {
-            thatDay = thatDay.minus(today.getMillis() - persoon.getGebdatum().getMillis());
-        }
-        dgLijst = new ArrayList<>();
-        int factor = today.isBefore(thatDay) ? -1 : 1;
         DateTime d;
         DatumGeval dg;
 
+        for (Persoon persoon : personen) {
+            thatDay = thatDay.minus(today.getMillis() - persoon.getGebdatum().getMillis());
+        }
+        int factor = personen.size();
+        if (factor == 0) {
+            return;
+        }
+
         for (int y = 0; y < 505; y++) {
-            d = thatDay.plusYears(factor * y);
+            d = thatDay.plusYears(y);
             if (today.isAfter(d)) continue;
+            long verschil = (d.getMillis() - today.getMillis()) / factor;
+            d = today.plus(verschil);
             dg = new DatumGeval(Helper.eenheidType.year, d, y);
             dgLijst.add(dg);
         }
@@ -91,8 +96,10 @@ class Helper {
                 4000, 4100, 4300, 4400, 4600, 4700, 4900, 5000};
 
         for (int maand : maanden) {
-            d = thatDay.plusMonths(factor * maand);
+            d = thatDay.plusMonths(maand);
             if (today.isAfter(d)) continue;
+            long verschil = (d.getMillis() - today.getMillis()) / factor;
+            d = today.plus(verschil);
             dg = new DatumGeval(Helper.eenheidType.month, d, maand);
             dgLijst.add(dg);
         }
@@ -111,8 +118,10 @@ class Helper {
                 20000, 21000, 22000, 23000, 24000, 25000, 26000, 27000, 28000, 29000};
 
         for (int week : weken) {
-            d = thatDay.plusWeeks(factor * week);
+            d = thatDay.plusWeeks(week);
             if (today.isAfter(d)) continue;
+            long verschil = (d.getMillis() - today.getMillis()) / factor;
+            d = today.plus(verschil);
             dg = new DatumGeval(Helper.eenheidType.week, d, week);
             dgLijst.add(dg);
         }
@@ -124,8 +133,10 @@ class Helper {
                 50000, 60000, 80000, 90000, 100000, 110000, 120000, 130000, 150000, 160000, 170000, 180000, 190000, 200000};
 
         for (int dag : dagen) {
-            d = thatDay.plusDays(factor * dag);
+            d = thatDay.plusDays(dag);
             if (today.isAfter(d)) continue;
+            long verschil = (d.getMillis() - today.getMillis()) / factor;
+            d = today.plus(verschil);
             dg = new DatumGeval(Helper.eenheidType.day, d, dag);
             dgLijst.add(dg);
         }
@@ -135,8 +146,10 @@ class Helper {
                 1000000, 1500000, 2000000, 2500000, 3000000, 3500000, 4000000, 4500000, 5000000};
 
         for (int uur : uren) {
-            d = thatDay.plusHours(factor * uur);
+            d = thatDay.plusHours(uur);
             if (today.isAfter(d)) continue;
+            long verschil = (d.getMillis() - today.getMillis()) / factor;
+            d = today.plus(verschil);
             dg = new DatumGeval(Helper.eenheidType.hour, d, uur);
             dgLijst.add(dg);
         }
@@ -146,8 +159,10 @@ class Helper {
                 200000000, 210000000, 220000000, 230000000, 250000000, 260000000, 280000000, 290000000};
 
         for (int minuut : minuten) {
-            d = thatDay.plusMinutes(factor * minuut);
+            d = thatDay.plusMinutes(minuut);
             if (today.isAfter(d)) continue;
+            long verschil = (d.getMillis() - today.getMillis()) / factor;
+            d = today.plus(verschil);
             dg = new DatumGeval(Helper.eenheidType.minute, d, minuut);
             dgLijst.add(dg);
         }
@@ -170,8 +185,10 @@ class Helper {
                 14000000000L, 14100000000L, 14200000000L, 14300000000L, 14400000000L, 14500000000L, 14600000000L, 14700000000L, 14800000000L, 14900000000L};
 
         for (Long seconde : seconden) {
-            d = thatDay.plus(1000 * factor * seconde);
+            d = thatDay.plus(1000 * seconde);
             if (today.isAfter(d)) continue;
+            long verschil = (d.getMillis() - today.getMillis()) / factor;
+            d = today.plus(verschil);
             dg = new DatumGeval(Helper.eenheidType.second, d, seconde);
             dgLijst.add(dg);
         }

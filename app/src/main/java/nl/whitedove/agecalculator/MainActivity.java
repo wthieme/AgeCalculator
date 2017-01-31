@@ -311,8 +311,8 @@ public class MainActivity extends FragmentActivity {
         Persoon persoon = mDH.GetPersoon(nr);
         String naam = persoon.getNaam();
         etNaam.setText(naam);
-        TextView tvNaam = (TextView) findViewById(R.id.tvNaam);
-        tvNaam.setText(naam);
+        TextView tvNames = (TextView) findViewById(R.id.tvNames);
+        tvNames.setText(naam);
     }
 
     private void SetNaam(EditText etNaam, int nr) {
@@ -489,10 +489,12 @@ public class MainActivity extends FragmentActivity {
 
         DateTime today = DateTime.now();
         DateTime thatDay = today;
+
         ArrayList<Persoon> personen = mDH.GetAangevinktePersonen();
         for (Persoon persoon : personen) {
             thatDay = thatDay.minus(today.getMillis() - persoon.getGebdatum().getMillis());
         }
+
         Period period = new Period(thatDay, today);
 
         TextView tvY = (TextView) findViewById(R.id.tvY);
@@ -548,8 +550,21 @@ public class MainActivity extends FragmentActivity {
         tvSeconds.setText(nFormat.format(totalSeconds));
 
         Helper.MakeDgList(personen);
-
         TextView tvNextParty = (TextView) findViewById(R.id.tvNextParty);
+        TextView tvWhenNextParty = (TextView) findViewById(R.id.tvWhenNextParty);
+        FloatingActionButton fabDgLijst = (FloatingActionButton) findViewById(R.id.fabDgLijst);
+
+        if (personen.size()==0)
+        {
+            tvNextParty.setVisibility(View.GONE);
+            tvWhenNextParty.setVisibility(View.GONE);
+            fabDgLijst.setVisibility(View.GONE);
+            return;
+        }
+
+        fabDgLijst.setVisibility(View.VISIBLE);
+        tvNextParty.setVisibility(View.VISIBLE);
+        tvWhenNextParty.setVisibility(View.VISIBLE);
         DatumGeval dg = Helper.dgLijst.get(0);
         DateTimeFormatter fmt = (dg.getEenheid() == Helper.eenheidType.hour
                 || dg.getEenheid() == Helper.eenheidType.minute
@@ -559,7 +574,6 @@ public class MainActivity extends FragmentActivity {
         String sDate = fmt.print(dg.getDatumTijd());
         tvNextParty.setText(String.format(getString(R.string.next_party), sDate));
 
-        TextView tvWhenNextParty = (TextView) findViewById(R.id.tvWhenNextParty);
         String sAantal = Helper.NumToString(dg.getAantal());
         String s = String.format(getString(R.string.Age), sAantal, dg.getEenheid());
         tvWhenNextParty.setText(s);
@@ -576,7 +590,7 @@ public class MainActivity extends FragmentActivity {
             for (int i = 1; i <= Helper.maxRijen; i++) {
                 Persoon persoon = new Persoon();
                 persoon.setId(i);
-                persoon.setNaam(String.format("Naam %s", i));
+                persoon.setNaam(String.format("Name %s", i));
                 persoon.setGebdatum(new DateTime(2000, 1, 1, 0, 0));
                 persoon.setGeselecteerd(i == 1);
                 persoon.setGetoond(i == 1);
@@ -674,8 +688,8 @@ public class MainActivity extends FragmentActivity {
 
     private void SetNaam() {
         String namen = BepaalNamen();
-        TextView tv = (TextView) findViewById(R.id.tvNaam);
-        tv.setText(namen);
+        TextView tvNames = (TextView) findViewById(R.id.tvNames);
+        tvNames.setText(namen);
         Helper.dgLijst = new ArrayList<>();
     }
 
