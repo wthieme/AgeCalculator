@@ -13,7 +13,7 @@ import java.util.ArrayList;
 class PersonsDialog extends Dialog implements
         View.OnClickListener {
 
-   DatabaseHelper mDH;
+    private DatabaseHelper mDH;
 
     PersonsDialog(Context ctx) {
         super(ctx);
@@ -24,17 +24,17 @@ class PersonsDialog extends Dialog implements
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.persons_dialog);
-        Button btOk = (Button) findViewById(R.id.btOk);
+        Button btOk = findViewById(R.id.btOk);
         btOk.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        CheckBox cb1 = (CheckBox) findViewById(R.id.cbShow1);
-        CheckBox cb2 = (CheckBox) findViewById(R.id.cbShow2);
-        CheckBox cb3 = (CheckBox) findViewById(R.id.cbShow3);
-        CheckBox cb4 = (CheckBox) findViewById(R.id.cbShow4);
-        CheckBox cb5 = (CheckBox) findViewById(R.id.cbShow5);
+        CheckBox cb1 = findViewById(R.id.cbShow1);
+        CheckBox cb2 = findViewById(R.id.cbShow2);
+        CheckBox cb3 = findViewById(R.id.cbShow3);
+        CheckBox cb4 = findViewById(R.id.cbShow4);
+        CheckBox cb5 = findViewById(R.id.cbShow5);
 
         ArrayList<Persoon> personen = mDH.GetAllePersonen();
 
@@ -58,11 +58,11 @@ class PersonsDialog extends Dialog implements
 
     void SetCheckboxes(DatabaseHelper mdh) {
 
-        CheckBox cb1 = (CheckBox) findViewById(R.id.cbShow1);
-        CheckBox cb2 = (CheckBox) findViewById(R.id.cbShow2);
-        CheckBox cb3 = (CheckBox) findViewById(R.id.cbShow3);
-        CheckBox cb4 = (CheckBox) findViewById(R.id.cbShow4);
-        CheckBox cb5 = (CheckBox) findViewById(R.id.cbShow5);
+        CheckBox cb1 = findViewById(R.id.cbShow1);
+        CheckBox cb2 = findViewById(R.id.cbShow2);
+        CheckBox cb3 = findViewById(R.id.cbShow3);
+        CheckBox cb4 = findViewById(R.id.cbShow4);
+        CheckBox cb5 = findViewById(R.id.cbShow5);
 
         mDH = mdh;
         ArrayList<Persoon> personen = mDH.GetAllePersonen();

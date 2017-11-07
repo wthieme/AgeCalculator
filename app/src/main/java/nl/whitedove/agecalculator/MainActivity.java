@@ -88,7 +88,7 @@ public class MainActivity extends FragmentActivity {
     }
 
     private void InitFabs() {
-        FloatingActionButton fabDgLijst = (FloatingActionButton) findViewById(R.id.fabDgLijst);
+        FloatingActionButton fabDgLijst = findViewById(R.id.fabDgLijst);
         fabDgLijst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -157,7 +157,7 @@ public class MainActivity extends FragmentActivity {
     }
 
     private void InitEdits() {
-        final EditText etName1 = (EditText) findViewById(R.id.etName1);
+        final EditText etName1 = findViewById(R.id.etName1);
         NaamToEdit(etName1, 1);
 
         etName1.addTextChangedListener(new TextWatcher() {
@@ -172,7 +172,7 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
-        final EditText etName2 = (EditText) findViewById(R.id.etName2);
+        final EditText etName2 = findViewById(R.id.etName2);
         NaamToEdit(etName2, 2);
 
         etName2.addTextChangedListener(new TextWatcher() {
@@ -187,7 +187,7 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
-        final EditText etName3 = (EditText) findViewById(R.id.etName3);
+        final EditText etName3 = findViewById(R.id.etName3);
         NaamToEdit(etName3, 3);
 
         etName3.addTextChangedListener(new TextWatcher() {
@@ -202,7 +202,7 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
-        final EditText etName4 = (EditText) findViewById(R.id.etName4);
+        final EditText etName4 = findViewById(R.id.etName4);
         NaamToEdit(etName4, 4);
 
         etName4.addTextChangedListener(new TextWatcher() {
@@ -217,7 +217,7 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
-        final EditText etName5 = (EditText) findViewById(R.id.etName5);
+        final EditText etName5 = findViewById(R.id.etName5);
         NaamToEdit(etName5, 5);
 
         etName5.addTextChangedListener(new TextWatcher() {
@@ -234,20 +234,20 @@ public class MainActivity extends FragmentActivity {
     }
 
     private void InitTvs() {
-        final TextView tvDate1 = (TextView) findViewById(R.id.tvDate1);
+        final TextView tvDate1 = findViewById(R.id.tvDate1);
         DateToTextView(tvDate1, 1);
-        final TextView tvDate2 = (TextView) findViewById(R.id.tvDate2);
+        final TextView tvDate2 = findViewById(R.id.tvDate2);
         DateToTextView(tvDate2, 2);
-        final TextView tvDate3 = (TextView) findViewById(R.id.tvDate3);
+        final TextView tvDate3 = findViewById(R.id.tvDate3);
         DateToTextView(tvDate3, 3);
-        final TextView tvDate4 = (TextView) findViewById(R.id.tvDate4);
+        final TextView tvDate4 = findViewById(R.id.tvDate4);
         DateToTextView(tvDate4, 4);
-        final TextView tvDate5 = (TextView) findViewById(R.id.tvDate5);
+        final TextView tvDate5 = findViewById(R.id.tvDate5);
         DateToTextView(tvDate5, 5);
     }
 
     private void InitCbs() {
-        final CheckBox cb1 = (CheckBox) findViewById(R.id.cb1);
+        final CheckBox cb1 = findViewById(R.id.cb1);
         CheckToCheckbox(cb1, 1);
         cb1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -256,7 +256,7 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
-        final CheckBox cb2 = (CheckBox) findViewById(R.id.cb2);
+        final CheckBox cb2 = findViewById(R.id.cb2);
         CheckToCheckbox(cb2, 2);
         cb2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -265,7 +265,7 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
-        final CheckBox cb3 = (CheckBox) findViewById(R.id.cb3);
+        final CheckBox cb3 = findViewById(R.id.cb3);
         CheckToCheckbox(cb3, 3);
         cb3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -274,7 +274,7 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
-        final CheckBox cb4 = (CheckBox) findViewById(R.id.cb4);
+        final CheckBox cb4 = findViewById(R.id.cb4);
         CheckToCheckbox(cb4, 4);
         cb4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -283,7 +283,7 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
-        final CheckBox cb5 = (CheckBox) findViewById(R.id.cb5);
+        final CheckBox cb5 = findViewById(R.id.cb5);
         CheckToCheckbox(cb5, 5);
         cb5.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -311,7 +311,7 @@ public class MainActivity extends FragmentActivity {
         Persoon persoon = mDH.GetPersoon(nr);
         String naam = persoon.getNaam();
         etNaam.setText(naam);
-        TextView tvNames = (TextView) findViewById(R.id.tvNames);
+        TextView tvNames = findViewById(R.id.tvNames);
         tvNames.setText(naam);
     }
 
@@ -334,7 +334,7 @@ public class MainActivity extends FragmentActivity {
         int nr = Helper.Nr;
         String name = String.format("tvDate%s", nr);
         int id = getResources().getIdentifier(name, "id", this.getPackageName());
-        final TextView tvDate = (TextView) findViewById(id);
+        final TextView tvDate = findViewById(id);
         SetDate(tvDate, nr, date);
     }
 
@@ -449,9 +449,9 @@ public class MainActivity extends FragmentActivity {
 
         if (eind != null && nu.isBefore(eind)) return;
 
-        final LinearLayout ll = (LinearLayout) findViewById(R.id.llDatumGeval);
-        TextView tvWhat = (TextView) findViewById(R.id.tvWhat);
-        TextView tvWhen = (TextView) findViewById(R.id.tvWhen);
+        final LinearLayout ll = findViewById(R.id.llDatumGeval);
+        TextView tvWhat = findViewById(R.id.tvWhat);
+        TextView tvWhen = findViewById(R.id.tvWhen);
         String sAantal = Helper.NumToString(Helper.dgLijst.get(idx).getAantal());
         String s = String.format("%s %ss", sAantal, Helper.dgLijst.get(idx).getEenheid());
         tvWhat.setText(s);
@@ -497,65 +497,64 @@ public class MainActivity extends FragmentActivity {
 
         Period period = new Period(thatDay, today);
 
-        TextView tvY = (TextView) findViewById(R.id.tvY);
+        TextView tvY = findViewById(R.id.tvY);
         tvY.setText(String.format(Locale.getDefault(), "%dy ", Math.abs(period.getYears())));
 
-        TextView tvM = (TextView) findViewById(R.id.tvM);
+        TextView tvM = findViewById(R.id.tvM);
         tvM.setText(String.format(Locale.getDefault(), "%dm ", Math.abs(period.getMonths())));
 
-        TextView tvW = (TextView) findViewById(R.id.tvW);
+        TextView tvW = findViewById(R.id.tvW);
         tvW.setText(String.format(Locale.getDefault(), "%dw ", Math.abs(period.getWeeks())));
 
-        TextView tvD = (TextView) findViewById(R.id.tvD);
+        TextView tvD = findViewById(R.id.tvD);
         tvD.setText(String.format(Locale.getDefault(), "%dd ", Math.abs(period.getDays())));
 
-        TextView tvH = (TextView) findViewById(R.id.tvH);
+        TextView tvH = findViewById(R.id.tvH);
         tvH.setText(String.format(Locale.getDefault(), "%dh ", Math.abs(period.getHours())));
 
-        TextView tvMi = (TextView) findViewById(R.id.tvMi);
+        TextView tvMi = findViewById(R.id.tvMi);
         tvMi.setText(String.format(Locale.getDefault(), "%dm ", Math.abs(period.getMinutes())));
 
-        TextView tvS = (TextView) findViewById(R.id.tvS);
+        TextView tvS = findViewById(R.id.tvS);
         tvS.setText(String.format(Locale.getDefault(), "%ds", Math.abs(period.getSeconds())));
 
         Locale locale = Locale.getDefault();
         NumberFormat nFormat = NumberFormat.getNumberInstance(locale);
 
         long totalYears = Math.abs(Years.yearsBetween(today, thatDay).getYears());
-        TextView tvYears = (TextView) findViewById(R.id.tvYears);
+        TextView tvYears = findViewById(R.id.tvYears);
         tvYears.setText(nFormat.format(totalYears));
 
         long totalMonths = Math.abs(Months.monthsBetween(today, thatDay).getMonths());
-        TextView tvMonths = (TextView) findViewById(R.id.tvMonths);
+        TextView tvMonths = findViewById(R.id.tvMonths);
         tvMonths.setText(nFormat.format(totalMonths));
 
         long totalWeeks = Math.abs(Weeks.weeksBetween(today, thatDay).getWeeks());
-        TextView tvWeeks = (TextView) findViewById(R.id.tvWeeks);
+        TextView tvWeeks = findViewById(R.id.tvWeeks);
         tvWeeks.setText(nFormat.format(totalWeeks));
 
         long totalDays = Math.abs(Days.daysBetween(today, thatDay).getDays());
-        TextView tvDays = (TextView) findViewById(R.id.tvDays);
+        TextView tvDays = findViewById(R.id.tvDays);
         tvDays.setText(nFormat.format(totalDays));
 
         long totalHours = Math.abs(Hours.hoursBetween(today, thatDay).getHours());
-        TextView tvHours = (TextView) findViewById(R.id.tvHours);
+        TextView tvHours = findViewById(R.id.tvHours);
         tvHours.setText(nFormat.format(totalHours));
 
         long totalMinutes = Math.abs(Minutes.minutesBetween(today, thatDay).getMinutes());
-        TextView tvMinutes = (TextView) findViewById(R.id.tvMinutes);
+        TextView tvMinutes = findViewById(R.id.tvMinutes);
         tvMinutes.setText(nFormat.format(totalMinutes));
 
         Long totalSeconds = Math.abs((today.getMillis() - thatDay.getMillis()) / 1000);
-        TextView tvSeconds = (TextView) findViewById(R.id.tvSeconds);
+        TextView tvSeconds = findViewById(R.id.tvSeconds);
         tvSeconds.setText(nFormat.format(totalSeconds));
 
         Helper.MakeDgList(personen);
-        TextView tvNextParty = (TextView) findViewById(R.id.tvNextParty);
-        TextView tvWhenNextParty = (TextView) findViewById(R.id.tvWhenNextParty);
-        FloatingActionButton fabDgLijst = (FloatingActionButton) findViewById(R.id.fabDgLijst);
+        TextView tvNextParty = findViewById(R.id.tvNextParty);
+        TextView tvWhenNextParty = findViewById(R.id.tvWhenNextParty);
+        FloatingActionButton fabDgLijst = findViewById(R.id.fabDgLijst);
 
-        if (personen.size()==0)
-        {
+        if (personen.size() == 0) {
             tvNextParty.setVisibility(View.GONE);
             tvWhenNextParty.setVisibility(View.GONE);
             fabDgLijst.setVisibility(View.GONE);
@@ -676,10 +675,11 @@ public class MainActivity extends FragmentActivity {
 
     private String BepaalNamen() {
         ArrayList<Persoon> personen = mDH.GetAangevinktePersonen();
-        String namen = "";
+        StringBuilder namenBuilder = new StringBuilder();
         for (Persoon persoon : personen) {
-            namen = namen + persoon.getNaam() + " + ";
+            namenBuilder.append(persoon.getNaam()).append(" + ");
         }
+        String namen = namenBuilder.toString();
         if (namen.length() > 0) {
             namen = namen.substring(0, namen.length() - 3);
         }
@@ -688,7 +688,7 @@ public class MainActivity extends FragmentActivity {
 
     private void SetNaam() {
         String namen = BepaalNamen();
-        TextView tvNames = (TextView) findViewById(R.id.tvNames);
+        TextView tvNames = findViewById(R.id.tvNames);
         tvNames.setText(namen);
         Helper.dgLijst = new ArrayList<>();
     }

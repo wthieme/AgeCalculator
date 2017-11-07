@@ -40,9 +40,9 @@ class CustomListAdapterDates extends BaseAdapter {
         if (convertView == null) {
             convertView = layoutInflater.inflate(R.layout.dates_list_row, parent, false);
             holder = new ViewHolder();
-            holder.tvWhat = (TextView) convertView.findViewById(R.id.tvDrWhat);
-            holder.tvWhenDate = (TextView) convertView.findViewById(R.id.tvDrWhenDate);
-            holder.tvWhenTime = (TextView) convertView.findViewById(R.id.tvDrWhenTime);
+            holder.tvWhat = convertView.findViewById(R.id.tvDrWhat);
+            holder.tvWhenDate = convertView.findViewById(R.id.tvDrWhenDate);
+            holder.tvWhenTime = convertView.findViewById(R.id.tvDrWhenTime);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();

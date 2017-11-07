@@ -16,7 +16,7 @@ public class ListDatesActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dates_list_activity);
 
-        FloatingActionButton fabTerug = (FloatingActionButton) findViewById(R.id.fabTerug);
+        FloatingActionButton fabTerug = findViewById(R.id.fabTerug);
         fabTerug.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -24,6 +24,7 @@ public class ListDatesActivity extends Activity {
             }
         });
         Bundle extras = getIntent().getExtras();
+        assert extras != null;
         String namen = extras.getString("namen");
         ToonData(namen);
     }
@@ -36,11 +37,11 @@ public class ListDatesActivity extends Activity {
     }
 
     private void ToonData(String namen) {
-        TextView tvNamen = (TextView) findViewById(R.id.tvNamen);
+        TextView tvNamen = findViewById(R.id.tvNamen);
         tvNamen.setText(namen);
         if (Helper.dgLijst == null || Helper.dgLijst.size() == 0) return;
 
-        final ListView lvEigenMeldingen = (ListView) findViewById(R.id.lvDates);
+        final ListView lvEigenMeldingen = findViewById(R.id.lvDates);
         lvEigenMeldingen.setAdapter(new CustomListAdapterDates(this, Helper.dgLijst));
 
     }
