@@ -27,7 +27,6 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         android:layout_alignBottom="@+id/tvAgeCalc"
         android:contentDescription="@string/menu"
         android:onClick="moreClick"
@@ -40,7 +39,6 @@
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvAgeCalc"
-        android:layout_marginLeft="5dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/edit_text"
@@ -55,11 +53,9 @@
         android:layout_width="30dp"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/etName1"
-        android:layout_marginLeft="0dp"
         android:layout_marginStart="0dp"
         android:layout_marginTop="5dp"
         android:layout_toEndOf="@+id/etName1"
-        android:layout_toRightOf="@+id/etName1"
         android:theme="@style/checkBoxStyle" />
 
     <ImageView
@@ -67,10 +63,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/etName1"
-        android:layout_marginLeft="0dp"
         android:layout_marginStart="0dp"
         android:layout_toEndOf="@+id/cb1"
-        android:layout_toRightOf="@+id/cb1"
         android:contentDescription="@string/date_picker"
         android:src="@drawable/calendar" />
 
@@ -80,7 +74,6 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/etName1"
         android:layout_toEndOf="@+id/ivDate1"
-        android:layout_toRightOf="@+id/ivDate1"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:text="@string/Date"
@@ -93,7 +86,6 @@
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etName1"
-        android:layout_marginLeft="5dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="3dp"
         android:background="@drawable/edit_text"
@@ -108,11 +100,9 @@
         android:layout_width="30dp"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/etName2"
-        android:layout_marginLeft="0dp"
         android:layout_marginStart="0dp"
         android:layout_marginTop="5dp"
         android:layout_toEndOf="@+id/etName2"
-        android:layout_toRightOf="@+id/etName2"
         android:textColor="@color/colorText"
         android:theme="@style/checkBoxStyle" />
 
@@ -121,10 +111,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/etName2"
-        android:layout_marginLeft="0dp"
         android:layout_marginStart="0dp"
         android:layout_toEndOf="@+id/cb2"
-        android:layout_toRightOf="@+id/cb2"
         android:contentDescription="@string/date_picker"
         android:src="@drawable/calendar" />
 
@@ -134,7 +122,6 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/etName2"
         android:layout_toEndOf="@+id/ivDate2"
-        android:layout_toRightOf="@+id/ivDate2"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:text="@string/Date"
@@ -147,7 +134,6 @@
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etName2"
-        android:layout_marginLeft="5dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="3dp"
         android:background="@drawable/edit_text"
@@ -162,11 +148,9 @@
         android:layout_width="30dp"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/etName3"
-        android:layout_marginLeft="0dp"
         android:layout_marginStart="0dp"
         android:layout_marginTop="5dp"
         android:layout_toEndOf="@+id/etName3"
-        android:layout_toRightOf="@+id/etName3"
         android:textColor="@color/colorText"
         android:theme="@style/checkBoxStyle" />
 
@@ -175,10 +159,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/etName3"
-        android:layout_marginLeft="0dp"
         android:layout_marginStart="0dp"
         android:layout_toEndOf="@+id/cb3"
-        android:layout_toRightOf="@+id/cb3"
         android:contentDescription="@string/date_picker"
         android:src="@drawable/calendar" />
 
@@ -188,7 +170,6 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/etName3"
         android:layout_toEndOf="@+id/ivDate3"
-        android:layout_toRightOf="@+id/ivDate3"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:text="@string/Date"
@@ -201,7 +182,6 @@
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etName3"
-        android:layout_marginLeft="5dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="3dp"
         android:background="@drawable/edit_text"
@@ -216,11 +196,9 @@
         android:layout_width="30dp"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/etName4"
-        android:layout_marginLeft="0dp"
         android:layout_marginStart="0dp"
         android:layout_marginTop="5dp"
         android:layout_toEndOf="@+id/etName4"
-        android:layout_toRightOf="@+id/etName4"
         android:theme="@style/checkBoxStyle" />
 
     <ImageView
@@ -228,10 +206,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/etName4"
-        android:layout_marginLeft="0dp"
         android:layout_marginStart="0dp"
         android:layout_toEndOf="@+id/cb4"
-        android:layout_toRightOf="@+id/cb4"
         android:contentDescription="@string/date_picker"
         android:src="@drawable/calendar" />
 
@@ -241,7 +217,6 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/etName4"
         android:layout_toEndOf="@+id/ivDate4"
-        android:layout_toRightOf="@+id/ivDate4"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:text="@string/Date"
@@ -254,7 +229,6 @@
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etName4"
-        android:layout_marginLeft="5dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="3dp"
         android:background="@drawable/edit_text"
@@ -269,11 +243,9 @@
         android:layout_width="30dp"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/etName5"
-        android:layout_marginLeft="0dp"
         android:layout_marginStart="0dp"
         android:layout_marginTop="5dp"
         android:layout_toEndOf="@+id/etName5"
-        android:layout_toRightOf="@+id/etName5"
         android:theme="@style/checkBoxStyle" />
 
     <ImageView
@@ -281,10 +253,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/etName5"
-        android:layout_marginLeft="0dp"
         android:layout_marginStart="0dp"
         android:layout_toEndOf="@+id/cb5"
-        android:layout_toRightOf="@+id/cb5"
         android:contentDescription="@string/date_picker"
         android:src="@drawable/calendar" />
 
@@ -294,7 +264,6 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/etName5"
         android:layout_toEndOf="@+id/ivDate5"
-        android:layout_toRightOf="@+id/ivDate5"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:text="@string/Date"
