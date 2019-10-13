@@ -362,7 +362,7 @@
 
     </LinearLayout>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:id="@+id/llYears"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -398,7 +398,7 @@
             android:textSize="14sp" />
     </LinearLayout>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:id="@+id/llMonths"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -437,7 +437,7 @@
 
     </LinearLayout>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:id="@+id/llWeeks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -475,7 +475,7 @@
 
     </LinearLayout>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:id="@+id/llDays"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -512,7 +512,7 @@
             android:textSize="14sp" />
     </LinearLayout>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:id="@+id/llHours"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -549,7 +549,7 @@
             android:textSize="14sp" />
     </LinearLayout>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:id="@+id/llMinutes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -586,7 +586,7 @@
             android:textSize="14sp" />
     </LinearLayout>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:id="@+id/llSeconds"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -624,7 +624,7 @@
             android:textSize="14sp" />
     </LinearLayout>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:id="@+id/llFabList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -632,7 +632,7 @@
         android:layout_centerHorizontal="true"
         android:orientation="horizontal">
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <LinearLayout
             android:id="@+id/llNextParty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -661,7 +661,7 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <android.support.design.widget.FloatingActionButton
+        <FloatingActionButton
             android:id="@+id/fabDgLijst"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -673,7 +673,7 @@
             app:useCompatPadding="true" />
     </LinearLayout>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:id="@+id/llDatumGeval"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
