@@ -15,13 +15,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53b585de-5751-4a4a-91f3-c342619a101d" name="Default" comment="Migrated to kotlin">
+    <list default="true" id="53b585de-5751-4a4a-91f3-c342619a101d" name="Default" comment="Berekening a zoveel maal zo oud als b toegevoegd">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/nl/whitedove/agecalculator/CustomListAdapterDates.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/nl/whitedove/agecalculator/CustomListAdapterDates.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/nl/whitedove/agecalculator/DatumGeval.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/nl/whitedove/agecalculator/DatumGeval.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/nl/whitedove/agecalculator/Helper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/nl/whitedove/agecalculator/Helper.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/nl/whitedove/agecalculator/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/nl/whitedove/agecalculator/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dates_list_row.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dates_list_row.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,8 +77,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/nl/whitedove/agecalculator/Helper.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="179" column="69" selection-start-line="179" selection-start-column="69" selection-end-line="179" selection-end-column="69" />
+            <state relative-caret-position="195">
+              <caret line="187" selection-start-line="187" selection-end-line="187" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/joda-time/joda-time/2.10/b2d6ec41ce1a888a630ad990793cb84a59f17209/joda-time-2.10-sources.jar!/org/joda/time/DateTime.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="956" selection-start-line="956" selection-end-line="956" />
+              <folding>
+                <element signature="e#38541#38542#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -90,8 +98,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/nl/whitedove/agecalculator/DatumGeval.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+            <state relative-caret-position="290">
+              <caret line="81" selection-start-line="81" selection-end-line="81" />
             </state>
           </provider>
         </entry>
@@ -114,31 +122,21 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/nl/whitedove/agecalculator/CustomListAdapterDates.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="39" column="47" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
           <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="47" selection-start-line="47" selection-end-line="47" />
+            <state relative-caret-position="264">
+              <caret line="706" column="36" lean-forward="true" selection-start-line="706" selection-start-column="36" selection-end-line="706" selection-end-column="36" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dates_list_row.xml">
-          <provider selected="true" editor-type-id="android-designer2" />
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="50" column="36" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/nl/whitedove/agecalculator/CustomListAdapterDates.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="33">
+              <caret line="39" column="47" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -156,6 +154,7 @@
       <find>numt</find>
       <find>animate</find>
       <find>?</find>
+      <find>age</find>
     </findStrings>
   </component>
   <component name="GenerateSignedApkSettings">
@@ -184,12 +183,12 @@
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dates_list_activity.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/persons_dialog.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/nl/whitedove/agecalculator/DatumGeval.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/nl/whitedove/agecalculator/CustomListAdapterDates.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/nl/whitedove/agecalculator/Helper.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/nl/whitedove/agecalculator/MainActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dates_list_row.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/nl/whitedove/agecalculator/Helper.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
       </list>
     </option>
   </component>
@@ -392,7 +391,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577132571116</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Berekening a zoveel maal zo oud als b toegevoegd">
+      <created>1577141285926</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1577141285926</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -436,7 +442,20 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Update libraries and AndroidX" />
     <MESSAGE value="Migrated to kotlin" />
-    <option name="LAST_COMMIT_MESSAGE" value="Migrated to kotlin" />
+    <MESSAGE value="Berekening a zoveel maal zo oud als b toegevoegd" />
+    <option name="LAST_COMMIT_MESSAGE" value="Berekening a zoveel maal zo oud als b toegevoegd" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/nl/whitedove/agecalculator/Helper.kt</url>
+          <line>67</line>
+          <properties />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/settings.gradle">
@@ -546,13 +565,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/nl/whitedove/agecalculator/DatumGeval.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/nl/whitedove/agecalculator/Persoon.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -567,32 +579,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/nl/whitedove/agecalculator/CustomListAdapterDates.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="39" column="47" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32">
           <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/nl/whitedove/agecalculator/Helper.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="179" column="69" selection-start-line="179" selection-start-column="69" selection-end-line="179" selection-end-column="69" />
         </state>
       </provider>
     </entry>
@@ -612,6 +602,45 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="50" column="36" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/nl/whitedove/agecalculator/CustomListAdapterDates.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="39" column="47" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/joda-time/joda-time/2.10/b2d6ec41ce1a888a630ad990793cb84a59f17209/joda-time-2.10-sources.jar!/org/joda/time/DateTime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="956" selection-start-line="956" selection-end-line="956" />
+          <folding>
+            <element signature="e#38541#38542#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/nl/whitedove/agecalculator/DatumGeval.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="81" selection-start-line="81" selection-end-line="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/nl/whitedove/agecalculator/Helper.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="187" selection-start-line="187" selection-end-line="187" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="706" column="36" lean-forward="true" selection-start-line="706" selection-start-column="36" selection-end-line="706" selection-end-column="36" />
         </state>
       </provider>
     </entry>

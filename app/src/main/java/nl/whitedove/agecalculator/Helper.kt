@@ -185,9 +185,8 @@ internal object Helper {
 
                     }
                 }
-
-                Collections.sort(dgLijst) { lhs, rhs -> lhs.getDatumTijd()!!.compareTo(rhs.getDatumTijd()) }
             }
+            Collections.sort(dgLijst) { lhs, rhs -> lhs.getDatumTijd()!!.compareTo(rhs.getDatumTijd()) }
         }
     }
 
