@@ -22,14 +22,14 @@ internal object Helper {
         }
     }
 
-    fun ShowMessage(cxt: Context?, melding: String?, isLong: Boolean) {
+    fun showMessage(cxt: Context?, melding: String?, isLong: Boolean) {
         Log(melding)
         val duration = if (isLong) Toast.LENGTH_LONG else Toast.LENGTH_SHORT
         val toast = Toast.makeText(cxt, melding, duration)
         toast.show()
     }
 
-    fun NumToString(aantal: Long): String? {
+    fun numToString(aantal: Long): String? {
         if (aantal < 1000) return String.format("%s", aantal)
         if (aantal < 1000000 && aantal % 1000 != 0L) return String.format("%s", aantal)
         if (aantal < 1000000 && aantal % 1000 == 0L) return String.format("%sk", aantal / 1000)
@@ -38,7 +38,7 @@ internal object Helper {
         return if (aantal < 1000000000000L && aantal % 1000000000 != 0L) String.format("%sM", aantal / 1000000) else String.format("%sG", aantal / 1000000000)
     }
 
-    fun MakeDgList(personen: ArrayList<Persoon>) {
+    fun makeDgList(personen: ArrayList<Persoon>) {
         if (dgLijst.size > 0) return
         dgLijst = ArrayList()
         val today = DateTime.now()
@@ -152,11 +152,61 @@ internal object Helper {
             dg = DatumGeval(eenheidType.second, d, seconde)
             dgLijst.add(dg)
         }
-        Collections.sort(dgLijst) { lhs, rhs -> lhs.getDatumTijd()!!.compareTo(rhs.getDatumTijd()) }
+
+        val timesList = arrayOf(2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+        val aantal = personen.count()
+        for (i in 0 until aantal) {
+            val p1 = personen[i]
+            for (j in i + 1 until aantal) {
+                val p2 = personen[j]
+
+                for (times in timesList) {
+                    var oudsteDat: DateTime
+                    var jongsteDat: DateTime
+                    var txtToShow = ""
+
+                    if (p1.getGebdatum()!! < p2.getGebdatum()) {
+                        oudsteDat = p1.getGebdatum()!!
+                        jongsteDat = p2.getGebdatum()!!
+                        txtToShow = p1.getNaam() + " " + times.toString() + "x age " + p2.getNaam()
+                    } else {
+                        oudsteDat = p2.getGebdatum()!!
+                        jongsteDat = p1.getGebdatum()!!
+                        txtToShow = p2.getNaam() + " " + times.toString() + "x age " + p1.getNaam()
+                    }
+                    val datVerschil = berekenVerschil(oudsteDat, jongsteDat, times)
+                    if (datVerschil.isAfter(today)) {
+                        dg = DatumGeval(eenheid = eenheidType.second,
+                                datumTijd = datVerschil,
+                                kind = Helper.kindType.relative,
+                                textToShow = txtToShow)
+                        dgLijst.add(dg)
+
+                    }
+                }
+
+                Collections.sort(dgLijst) { lhs, rhs -> lhs.getDatumTijd()!!.compareTo(rhs.getDatumTijd()) }
+            }
+        }
     }
+
+    fun berekenVerschil(oudsteDat: DateTime, jongsteDat: DateTime, aantal: Int): DateTime {
+        val oudsteMs = oudsteDat.millis
+        val jongsteMs = jongsteDat.millis
+        val resultMs = oudsteMs + ((aantal / (aantal - 1.0)) * (jongsteMs - oudsteMs))
+        val resultL = resultMs.toLong()
+        val result = DateTime(resultL)
+        return result
+    }
+
 
     internal enum class eenheidType {
         year, month, week, day, hour, minute, second
+    }
+
+    internal enum class kindType {
+        absolute, relative
     }
 
     internal enum class animatie {

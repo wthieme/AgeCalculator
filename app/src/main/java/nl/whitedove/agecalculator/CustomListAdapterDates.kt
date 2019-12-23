@@ -36,9 +36,17 @@ internal class CustomListAdapterDates(context: Context, private val listData: Ar
             holder = cv.tag as ViewHolder
         }
         val dat = listData[position]
-        val sAantal = Helper.NumToString(dat.getAantal())
-        val s = String.format("%s %ss", sAantal, dat.getEenheid())
-        holder.tvWhat!!.setText(s)
+        val kind = dat.getKind()
+        if (kind == Helper.kindType.absolute) {
+
+            val sAantal = Helper.numToString(dat.getAantal())
+            val s = String.format("%s %ss", sAantal, dat.getEenheid())
+            holder.tvWhat!!.setText(s)
+        } else {
+            val s = dat.getTextToShow()
+            holder.tvWhat!!.setText(s)
+        }
+
         val eenh = dat.getEenheid()
         holder.tvWhenDate!!.setText(Helper.dFormat.print(dat.getDatumTijd()))
         if (eenh == eenheidType.hour || eenh == eenheidType.minute || eenh == eenheidType.second) {

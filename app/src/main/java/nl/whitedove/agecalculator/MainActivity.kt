@@ -265,13 +265,13 @@ class MainActivity : FragmentActivity() {
         val minute = persoon.getGebdatum()!!.minuteOfHour
         val newDate = DateTime(yyyy, mm + 1, dd, hour, minute)
         if (newDate.isAfterNow) {
-            Helper.ShowMessage(context, getString(R.string.DateNotInPast), true)
+            Helper.showMessage(context, getString(R.string.DateNotInPast), true)
             return@OnDateSetListener
         }
         val dAfter = DateTime.now().minusYears(100)
         if (newDate.isBefore(dAfter)) {
             val sAfter = Helper.dFormat.print(dAfter)
-            Helper.ShowMessage(context, String.format(getString(R.string.DateMustBeAfter), sAfter), true)
+            Helper.showMessage(context, String.format(getString(R.string.DateMustBeAfter), sAfter), true)
             return@OnDateSetListener
         }
         setDate(newDate)
@@ -326,9 +326,17 @@ class MainActivity : FragmentActivity() {
         val ll = findViewById<LinearLayout>(R.id.llDatumGeval)
         val tvWhat = findViewById<TextView>(R.id.tvWhat)
         val tvWhen = findViewById<TextView>(R.id.tvWhen)
-        val sAantal = Helper.NumToString(Helper.dgLijst[idx].getAantal())
-        val s = String.format("%s %ss", sAantal, Helper.dgLijst[idx].getEenheid())
-        tvWhat.setText(s)
+        val kind = Helper.dgLijst[idx].getKind()
+        if (kind == Helper.kindType.absolute) {
+            val sAantal = Helper.numToString(Helper.dgLijst[idx].getAantal())
+            val s = String.format("%s %ss", sAantal, Helper.dgLijst[idx].getEenheid())
+            tvWhat.setText(s)
+        }
+        else
+        {
+            val s = Helper.dgLijst[idx].getTextToShow()
+            tvWhat.setText(s)
+        }
         val eenh = Helper.dgLijst[idx].getEenheid()
         val fmt = if (eenh == eenheidType.hour || eenh == eenheidType.minute || eenh == eenheidType.second) Helper.dtFormat else Helper.dFormat
         tvWhen.setText(fmt.print(Helper.dgLijst[idx].getDatumTijd()))
@@ -398,7 +406,7 @@ class MainActivity : FragmentActivity() {
         val totalSeconds = Math.abs((today.millis - thatDay.millis) / 1000)
         val tvSeconds = findViewById<TextView>(R.id.tvSeconds)
         tvSeconds.setText(nFormat.format(totalSeconds))
-        Helper.MakeDgList(personen)
+        Helper.makeDgList(personen)
         val tvNextParty = findViewById<TextView>(R.id.tvNextParty)
         val tvWhenNextParty = findViewById<TextView>(R.id.tvWhenNextParty)
         val fabDgLijst = findViewById<FloatingActionButton>(R.id.fabDgLijst)
@@ -415,9 +423,16 @@ class MainActivity : FragmentActivity() {
         val fmt = if (dg.getEenheid() == eenheidType.hour || dg.getEenheid() == eenheidType.minute || dg.getEenheid() == eenheidType.second) Helper.dtFormat else Helper.dFormat
         val sDate = fmt.print(dg.getDatumTijd())
         tvNextParty.setText(String.format(getString(R.string.next_party), sDate))
-        val sAantal = Helper.NumToString(dg.getAantal())
-        val s = String.format(getString(R.string.Age), sAantal, dg.getEenheid())
-        tvWhenNextParty.setText(s)
+        if (dg.getKind()== Helper.kindType.absolute) {
+            val sAantal = Helper.numToString(dg.getAantal())
+            val s = String.format(getString(R.string.Age), sAantal, dg.getEenheid())
+            tvWhenNextParty.setText(s)
+        }
+        else {
+            val s = dg.getTextToShow()
+            tvWhenNextParty.setText(s)
+        }
+
         animateDatumGeval()
         restart(false)
     }
@@ -454,7 +469,7 @@ class MainActivity : FragmentActivity() {
             try {
                 mHandler.obtainMessage(1).sendToTarget()
             } catch (e: Exception) {
-                Helper.ShowMessage(cxt, e.message, false)
+                Helper.showMessage(cxt, e.message, false)
             }
         }
         val future = mFuture
