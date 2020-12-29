@@ -6,16 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
-import nl.whitedove.agecalculator.Helper.eenheidType
+import nl.whitedove.agecalculator.Helper.EenheidType
 
 internal class CustomListAdapterDates(context: Context, private val listData: ArrayList<DatumGeval>) : BaseAdapter() {
-    private val layoutInflater: LayoutInflater
+    private val layoutInflater: LayoutInflater = LayoutInflater.from(context)
     override fun getCount(): Int {
         return listData.size
     }
 
     override fun getItem(position: Int): Any {
-        return listData.get(position)
+        return listData[position]
     }
 
     override fun getItemId(position: Int): Long {
@@ -37,23 +37,23 @@ internal class CustomListAdapterDates(context: Context, private val listData: Ar
         }
         val dat = listData[position]
         val kind = dat.getKind()
-        if (kind == Helper.kindType.absolute) {
+        if (kind == Helper.KindType.Absolute) {
 
             val sAantal = Helper.numToString(dat.getAantal())
             val s = String.format("%s %ss", sAantal, dat.getEenheid())
-            holder.tvWhat!!.setText(s)
+            holder.tvWhat!!.text = s
         } else {
             val s = dat.getTextToShow()
-            holder.tvWhat!!.setText(s)
+            holder.tvWhat!!.text = s
         }
 
         val eenh = dat.getEenheid()
-        holder.tvWhenDate!!.setText(Helper.dFormat.print(dat.getDatumTijd()))
-        if (eenh == eenheidType.hour || eenh == eenheidType.minute || eenh == eenheidType.second) {
-            holder.tvWhenTime!!.setText(Helper.tFormatHhMmSs.print(dat.getDatumTijd()))
-            holder.tvWhenTime!!.setVisibility(View.VISIBLE)
+        holder.tvWhenDate!!.text = Helper.dFormat.print(dat.getDatumTijd())
+        if (eenh == EenheidType.Hour || eenh == EenheidType.Minute || eenh == EenheidType.Second) {
+            holder.tvWhenTime!!.text = Helper.tFormatHhMmSs.print(dat.getDatumTijd())
+            holder.tvWhenTime!!.visibility = View.VISIBLE
         } else {
-            holder.tvWhenTime!!.setVisibility(View.GONE)
+            holder.tvWhenTime!!.visibility = View.GONE
         }
         return cv
     }
@@ -64,7 +64,4 @@ internal class CustomListAdapterDates(context: Context, private val listData: Ar
         var tvWhenTime: TextView? = null
     }
 
-    init {
-        layoutInflater = LayoutInflater.from(context)
-    }
 }

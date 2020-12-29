@@ -23,7 +23,7 @@ internal class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATA
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {}
-    fun UpdatePersoon(persoon: Persoon) {
+    fun updatePersoon(persoon: Persoon) {
         val db = this.writableDatabase
         db.execSQL("BEGIN TRANSACTION")
         val selectQuery = ("SELECT "
@@ -32,7 +32,7 @@ internal class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATA
                 + " WHERE " + PSN_ID + " = ?"
                 + " LIMIT 1")
         val cursor: Cursor?
-        cursor = db.rawQuery(selectQuery, arrayOf<String?>(Integer.toString(persoon.getId())))
+        cursor = db.rawQuery(selectQuery, arrayOf<String?>(persoon.getId().toString()))
         if (cursor.moveToFirst()) {
             val values = ContentValues()
             values.put(PSN_NAAM, persoon.getNaam())
@@ -40,7 +40,7 @@ internal class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATA
             values.put(PSN_GESELECTEERD, if (persoon.getGeselecteerd() == true) 1 else 0)
             values.put(PSN_GETOOND, if (persoon.getGetoond() == true) 1 else 0)
             values.put(PSN_GEVINKT, if (persoon.getGevinkt() == true) 1 else 0)
-            db.update(TAB_PERSOON, values, "$PSN_ID = ?", arrayOf<String?>(Integer.toString(persoon.getId())))
+            db.update(TAB_PERSOON, values, "$PSN_ID = ?", arrayOf<String?>(persoon.getId().toString()))
         } else {
             val values = ContentValues()
             values.put(PSN_NAAM, persoon.getNaam())
@@ -54,7 +54,7 @@ internal class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATA
         cursor.close()
     }
 
-    fun GetAllePersonen(): ArrayList<Persoon> {
+    fun getAllePersonen(): ArrayList<Persoon> {
         val personen = ArrayList<Persoon>()
         val selectQuery = ("SELECT "
                 + PSN_ID + ","
@@ -84,7 +84,7 @@ internal class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATA
         return personen
     }
 
-    fun GetPersoon(id: Int): Persoon {
+    fun getPersoon(id: Int): Persoon {
         val selectQuery = ("SELECT "
                 + PSN_ID + ","
                 + PSN_NAAM + ","
@@ -97,7 +97,7 @@ internal class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATA
                 + " ORDER BY " + PSN_ID)
         val db = this.readableDatabase
         val cursor: Cursor?
-        cursor = db.rawQuery(selectQuery, arrayOf<String?>(Integer.toString(id)))
+        cursor = db.rawQuery(selectQuery, arrayOf<String?>(id.toString()))
         val persoon = Persoon()
         if (cursor.moveToFirst()) {
             do {
@@ -113,7 +113,7 @@ internal class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATA
         return persoon
     }
 
-    fun GetAangevinktePersonen(): ArrayList<Persoon> {
+    fun getAangevinktePersonen(): ArrayList<Persoon> {
         val personen = ArrayList<Persoon>()
         val selectQuery = ("SELECT "
                 + PSN_ID + ","
@@ -145,21 +145,21 @@ internal class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATA
         return personen
     }
 
-    fun GetAantalPersonen(): Long {
+    fun getAantalPersonen(): Long {
         val db = this.readableDatabase
         return DatabaseUtils.queryNumEntries(db, TAB_PERSOON)
     }
 
     companion object {
         private const val DATABASE_VERSION = 1
-        private val DATABASE_NAME: String? = "agecalculator"
-        private val TAB_PERSOON: String? = "Persoon"
-        private val PSN_ID: String? = "Id"
-        private val PSN_NAAM: String? = "Naam"
-        private val PSN_GEBDATUM: String? = "GebDatum"
-        private val PSN_GESELECTEERD: String? = "Geselecteerd"
-        private val PSN_GETOOND: String? = "Getoond"
-        private val PSN_GEVINKT: String? = "Gevinkt"
+        private const val DATABASE_NAME: String = "agecalculator"
+        private const val TAB_PERSOON: String = "Persoon"
+        private const val PSN_ID: String = "Id"
+        private const val PSN_NAAM: String = "Naam"
+        private const val PSN_GEBDATUM: String = "GebDatum"
+        private const val PSN_GESELECTEERD: String = "Geselecteerd"
+        private const val PSN_GETOOND: String = "Getoond"
+        private const val PSN_GEVINKT: String = "Gevinkt"
         private var sInstance: DatabaseHelper? = null
 
         @Synchronized

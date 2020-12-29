@@ -5,7 +5,7 @@ import android.app.TimePickerDialog.OnTimeSetListener
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.os.Message
+import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
@@ -15,19 +15,16 @@ import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.fragment.app.FragmentActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import nl.whitedove.agecalculator.Helper.animatie
-import nl.whitedove.agecalculator.Helper.eenheidType
+import nl.whitedove.agecalculator.Helper.Animatie
+import nl.whitedove.agecalculator.Helper.EenheidType
 import org.joda.time.*
-import java.lang.ref.WeakReference
 import java.text.NumberFormat
 import java.util.*
-import java.util.concurrent.Executors
-import java.util.concurrent.ScheduledFuture
-import java.util.concurrent.TimeUnit
+import kotlin.concurrent.fixedRateTimer
+import kotlin.math.abs
 
 class MainActivity : FragmentActivity() {
-    private var mExecuter = Executors.newSingleThreadScheduledExecutor()
-    private var mFuture: ScheduledFuture<*>? = null
+    private var mTimer: Timer? = null
     private var mAnimation = false
     private var mInCalDiaglog = false
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,11 +62,11 @@ class MainActivity : FragmentActivity() {
     }
 
     private fun initDateListeners() {
-        findViewById<View>(R.id.ivDate1).setOnClickListener({ showDatePicker(1) })
-        findViewById<View>(R.id.ivDate2).setOnClickListener({ showDatePicker(2) })
-        findViewById<View>(R.id.ivDate3).setOnClickListener({ showDatePicker(3) })
-        findViewById<View>(R.id.ivDate4).setOnClickListener({ showDatePicker(4) })
-        findViewById<View>(R.id.ivDate5).setOnClickListener({ showDatePicker(5) })
+        findViewById<View>(R.id.ivDate1).setOnClickListener { showDatePicker(1) }
+        findViewById<View>(R.id.ivDate2).setOnClickListener { showDatePicker(2) }
+        findViewById<View>(R.id.ivDate3).setOnClickListener { showDatePicker(3) }
+        findViewById<View>(R.id.ivDate4).setOnClickListener { showDatePicker(4) }
+        findViewById<View>(R.id.ivDate5).setOnClickListener { showDatePicker(5) }
     }
 
     fun moreClick(oView: View) {
@@ -152,35 +149,35 @@ class MainActivity : FragmentActivity() {
     private fun initCbs() {
         val cb1 = findViewById<CheckBox>(R.id.cb1)
         checkToCheckbox(cb1, 1)
-        cb1.setOnCheckedChangeListener({ buttonView, isChecked -> setCheck(cb1, 1) })
+        cb1.setOnCheckedChangeListener { _, _ -> setCheck(cb1, 1) }
         val cb2 = findViewById<CheckBox>(R.id.cb2)
         checkToCheckbox(cb2, 2)
-        cb2.setOnCheckedChangeListener({ buttonView, isChecked -> setCheck(cb2, 2) })
+        cb2.setOnCheckedChangeListener { _, _ -> setCheck(cb2, 2) }
         val cb3 = findViewById<CheckBox>(R.id.cb3)
         checkToCheckbox(cb3, 3)
-        cb3.setOnCheckedChangeListener({ buttonView, isChecked -> setCheck(cb3, 3) })
+        cb3.setOnCheckedChangeListener { _, _ -> setCheck(cb3, 3) }
         val cb4 = findViewById<CheckBox>(R.id.cb4)
         checkToCheckbox(cb4, 4)
-        cb4.setOnCheckedChangeListener({ buttonView, isChecked -> setCheck(cb4, 4) })
+        cb4.setOnCheckedChangeListener { _, _ -> setCheck(cb4, 4) }
         val cb5 = findViewById<CheckBox>(R.id.cb5)
         checkToCheckbox(cb5, 5)
-        cb5.setOnCheckedChangeListener({ buttonView, isChecked -> setCheck(cb5, 5) })
+        cb5.setOnCheckedChangeListener { _, _ -> setCheck(cb5, 5) }
     }
 
     private fun checkToCheckbox(cb: CheckBox, nr: Int) {
         val context = applicationContext
         val dh = DatabaseHelper.getInstance(context)
-        val persoon = dh.GetPersoon(nr)
-        cb.setChecked(persoon.getGevinkt() == true)
+        val persoon = dh.getPersoon(nr)
+        cb.isChecked = persoon.getGevinkt() == true
     }
 
     private fun setCheck(cb: CheckBox, nr: Int) {
         val context = applicationContext
         val dh = DatabaseHelper.getInstance(context)
-        val persoon = dh.GetPersoon(nr)
-        val checked = cb.isChecked()
+        val persoon = dh.getPersoon(nr)
+        val checked = cb.isChecked
         persoon.setGevinkt(checked)
-        dh.UpdatePersoon(persoon)
+        dh.updatePersoon(persoon)
         // Update de samengestelde naam
         setNaam()
     }
@@ -188,20 +185,20 @@ class MainActivity : FragmentActivity() {
     private fun naamToEdit(etNaam: EditText, nr: Int) {
         val context = applicationContext
         val dh = DatabaseHelper.getInstance(context)
-        val persoon = dh.GetPersoon(nr)
+        val persoon = dh.getPersoon(nr)
         val naam = persoon.getNaam()
         etNaam.setText(naam)
         val tvNames = findViewById<TextView>(R.id.tvNames)
-        tvNames.setText(naam)
+        tvNames.text = naam
     }
 
     private fun setNaam(etNaam: EditText, nr: Int) {
         val context = applicationContext
         val dh = DatabaseHelper.getInstance(context)
-        val persoon = dh.GetPersoon(nr)
-        val naam = etNaam.getText().toString()
+        val persoon = dh.getPersoon(nr)
+        val naam = etNaam.text.toString()
         persoon.setNaam(naam)
-        dh.UpdatePersoon(persoon)
+        dh.updatePersoon(persoon)
         // Update de samengestelde naam
         setNaam()
     }
@@ -209,9 +206,9 @@ class MainActivity : FragmentActivity() {
     private fun dateToTextView(tvDate: TextView, nr: Int) {
         val context = applicationContext
         val dh = DatabaseHelper.getInstance(context)
-        val persoon = dh.GetPersoon(nr)
+        val persoon = dh.getPersoon(nr)
         val sDate = Helper.dtmFormat.print(persoon.getGebdatum())
-        tvDate.setText(sDate)
+        tvDate.text = sDate
     }
 
     private fun setDate(date: DateTime) {
@@ -227,10 +224,10 @@ class MainActivity : FragmentActivity() {
         val dh = DatabaseHelper.getInstance(context)
         Helper.Nr = nr
         val sDate = Helper.dtmFormat.print(date)
-        tvDate.setText(sDate)
-        val persoon = dh.GetPersoon(nr)
+        tvDate.text = sDate
+        val persoon = dh.getPersoon(nr)
         persoon.setGebdatum(date)
-        dh.UpdatePersoon(persoon)
+        dh.updatePersoon(persoon)
     }
 
     private fun toonLijst() {
@@ -245,7 +242,7 @@ class MainActivity : FragmentActivity() {
         val dh = DatabaseHelper.getInstance(context)
         mInCalDiaglog = true
         Helper.Nr = nr
-        val persoon = dh.GetPersoon(nr)
+        val persoon = dh.getPersoon(nr)
         val date = DatePickerFragment()
         val args = Bundle()
         args.putInt(getString(R.string.year), persoon.getGebdatum()!!.year)
@@ -256,11 +253,11 @@ class MainActivity : FragmentActivity() {
         date.show(supportFragmentManager, getString(R.string.date_picker))
     }
 
-    var ondate: OnDateSetListener = OnDateSetListener { view, yyyy, mm, dd ->
+    private var ondate: OnDateSetListener = OnDateSetListener { _, yyyy, mm, dd ->
         mInCalDiaglog = false
         val context = applicationContext
         val dh = DatabaseHelper.getInstance(context)
-        val persoon = dh.GetPersoon(Helper.Nr)
+        val persoon = dh.getPersoon(Helper.Nr)
         val hour = persoon.getGebdatum()!!.hourOfDay
         val minute = persoon.getGebdatum()!!.minuteOfHour
         val newDate = DateTime(yyyy, mm + 1, dd, hour, minute)
@@ -282,7 +279,7 @@ class MainActivity : FragmentActivity() {
         mInCalDiaglog = true
         val context = applicationContext
         val dh = DatabaseHelper.getInstance(context)
-        val persoon = dh.GetPersoon(Helper.Nr)
+        val persoon = dh.getPersoon(Helper.Nr)
         val time = TimePickerFragment()
         val args = Bundle()
         args.putInt(getString(R.string.hour), persoon.getGebdatum()!!.hourOfDay)
@@ -292,11 +289,11 @@ class MainActivity : FragmentActivity() {
         time.show(supportFragmentManager, getString(R.string.time_picker))
     }
 
-    var ontime: OnTimeSetListener = OnTimeSetListener { view, hh, mi ->
+    private var ontime: OnTimeSetListener = OnTimeSetListener { _, hh, mi ->
         mInCalDiaglog = false
         val context = applicationContext
         val dh = DatabaseHelper.getInstance(context)
-        val persoon = dh.GetPersoon(Helper.Nr)
+        val persoon = dh.getPersoon(Helper.Nr)
         val year = persoon.getGebdatum()!!.year
         val month = persoon.getGebdatum()!!.monthOfYear
         val day = persoon.getGebdatum()!!.dayOfMonth
@@ -307,7 +304,7 @@ class MainActivity : FragmentActivity() {
 
     private fun getAnimationIndex(): Int {
         for (i in Helper.dgLijst.indices) {
-            if (Helper.dgLijst[i].getAnimatie() != animatie.finished) return i
+            if (Helper.dgLijst[i].getAnimatie() != Animatie.Finished) return i
         }
         return -1
     }
@@ -317,7 +314,7 @@ class MainActivity : FragmentActivity() {
         //Kijk waar we gebleven waren
         val idx = getAnimationIndex()
         if (idx == -1) return
-        if (Helper.dgLijst[idx].getAnimatie() != animatie.waiting) return
+        if (Helper.dgLijst[idx].getAnimatie() != Animatie.Waiting) return
         // Na een animatie blijft het 10 seconden staan
         val start = if (idx >= 1) Helper.dgLijst[idx - 1].getAnimatieStartTijd() else null
         val eind = start?.plusMillis(Helper.Duration)
@@ -327,32 +324,30 @@ class MainActivity : FragmentActivity() {
         val tvWhat = findViewById<TextView>(R.id.tvWhat)
         val tvWhen = findViewById<TextView>(R.id.tvWhen)
         val kind = Helper.dgLijst[idx].getKind()
-        if (kind == Helper.kindType.absolute) {
+        if (kind == Helper.KindType.Absolute) {
             val sAantal = Helper.numToString(Helper.dgLijst[idx].getAantal())
             val s = String.format("%s %ss", sAantal, Helper.dgLijst[idx].getEenheid())
-            tvWhat.setText(s)
-        }
-        else
-        {
+            tvWhat.text = s
+        } else {
             val s = Helper.dgLijst[idx].getTextToShow()
-            tvWhat.setText(s)
+            tvWhat.text = s
         }
         val eenh = Helper.dgLijst[idx].getEenheid()
-        val fmt = if (eenh == eenheidType.hour || eenh == eenheidType.minute || eenh == eenheidType.second) Helper.dtFormat else Helper.dFormat
-        tvWhen.setText(fmt.print(Helper.dgLijst[idx].getDatumTijd()))
-        Helper.dgLijst[idx].setAnimatie(animatie.running)
+        val fmt = if (eenh == EenheidType.Hour || eenh == EenheidType.Minute || eenh == EenheidType.Second) Helper.dtFormat else Helper.dFormat
+        tvWhen.text = fmt.print(Helper.dgLijst[idx].getDatumTijd())
+        Helper.dgLijst[idx].setAnimatie(Animatie.Running)
         Helper.dgLijst[idx].setAnimatieStartTijd(DateTime.now())
         val animationFadeIn = AnimationUtils.loadAnimation(this, R.anim.fadein)
         animationFadeIn.startOffset = 1000
         animationFadeIn.setAnimationListener(object : AnimationListener {
             override fun onAnimationStart(animation: Animation?) {
-                ll.setVisibility(View.VISIBLE)
+                ll.visibility = View.VISIBLE
             }
 
             override fun onAnimationRepeat(animation: Animation?) {}
             override fun onAnimationEnd(animation: Animation?) {
                 mAnimation = false
-                if (Helper.dgLijst.size > 0) Helper.dgLijst[idx].setAnimatie(animatie.finished)
+                if (Helper.dgLijst.size > 0) Helper.dgLijst[idx].setAnimatie(Animatie.Finished)
             }
         })
         ll.startAnimation(animationFadeIn)
@@ -364,73 +359,72 @@ class MainActivity : FragmentActivity() {
         var thatDay = today
         val context = applicationContext
         val dh = DatabaseHelper.getInstance(context)
-        val personen = dh.GetAangevinktePersonen()
+        val personen = dh.getAangevinktePersonen()
         for (persoon in personen) {
             thatDay = thatDay.minus(today.millis - persoon.getGebdatum()!!.millis)
         }
         val period = Period(thatDay, today)
         val tvY = findViewById<TextView>(R.id.tvY)
-        tvY.setText(String.format(Locale.getDefault(), "%dy ", Math.abs(period.years)))
+        tvY.text = String.format(Locale.getDefault(), "%dy ", abs(period.years))
         val tvM = findViewById<TextView>(R.id.tvM)
-        tvM.setText(String.format(Locale.getDefault(), "%dm ", Math.abs(period.months)))
+        tvM.text = String.format(Locale.getDefault(), "%dm ", abs(period.months))
         val tvW = findViewById<TextView>(R.id.tvW)
-        tvW.setText(String.format(Locale.getDefault(), "%dw ", Math.abs(period.weeks)))
+        tvW.text = String.format(Locale.getDefault(), "%dw ", abs(period.weeks))
         val tvD = findViewById<TextView>(R.id.tvD)
-        tvD.setText(String.format(Locale.getDefault(), "%dd ", Math.abs(period.days)))
+        tvD.text = String.format(Locale.getDefault(), "%dd ", abs(period.days))
         val tvH = findViewById<TextView>(R.id.tvH)
-        tvH.setText(String.format(Locale.getDefault(), "%dh ", Math.abs(period.hours)))
+        tvH.text = String.format(Locale.getDefault(), "%dh ", abs(period.hours))
         val tvMi = findViewById<TextView>(R.id.tvMi)
-        tvMi.setText(String.format(Locale.getDefault(), "%dm ", Math.abs(period.minutes)))
+        tvMi.text = String.format(Locale.getDefault(), "%dm ", abs(period.minutes))
         val tvS = findViewById<TextView>(R.id.tvS)
-        tvS.setText(String.format(Locale.getDefault(), "%ds", Math.abs(period.seconds)))
+        tvS.text = String.format(Locale.getDefault(), "%ds", abs(period.seconds))
         val locale = Locale.getDefault()
         val nFormat = NumberFormat.getNumberInstance(locale)
-        val totalYears = Math.abs(Years.yearsBetween(today, thatDay).years).toLong()
+        val totalYears = abs(Years.yearsBetween(today, thatDay).years).toLong()
         val tvYears = findViewById<TextView>(R.id.tvYears)
-        tvYears.setText(nFormat.format(totalYears))
-        val totalMonths = Math.abs(Months.monthsBetween(today, thatDay).months).toLong()
+        tvYears.text = nFormat.format(totalYears)
+        val totalMonths = abs(Months.monthsBetween(today, thatDay).months).toLong()
         val tvMonths = findViewById<TextView>(R.id.tvMonths)
-        tvMonths.setText(nFormat.format(totalMonths))
-        val totalWeeks = Math.abs(Weeks.weeksBetween(today, thatDay).weeks).toLong()
+        tvMonths.text = nFormat.format(totalMonths)
+        val totalWeeks = abs(Weeks.weeksBetween(today, thatDay).weeks).toLong()
         val tvWeeks = findViewById<TextView>(R.id.tvWeeks)
-        tvWeeks.setText(nFormat.format(totalWeeks))
-        val totalDays = Math.abs(Days.daysBetween(today, thatDay).days).toLong()
+        tvWeeks.text = nFormat.format(totalWeeks)
+        val totalDays = abs(Days.daysBetween(today, thatDay).days).toLong()
         val tvDays = findViewById<TextView>(R.id.tvDays)
-        tvDays.setText(nFormat.format(totalDays))
-        val totalHours = Math.abs(Hours.hoursBetween(today, thatDay).hours).toLong()
+        tvDays.text = nFormat.format(totalDays)
+        val totalHours = abs(Hours.hoursBetween(today, thatDay).hours).toLong()
         val tvHours = findViewById<TextView>(R.id.tvHours)
-        tvHours.setText(nFormat.format(totalHours))
-        val totalMinutes = Math.abs(Minutes.minutesBetween(today, thatDay).minutes).toLong()
+        tvHours.text = nFormat.format(totalHours)
+        val totalMinutes = abs(Minutes.minutesBetween(today, thatDay).minutes).toLong()
         val tvMinutes = findViewById<TextView>(R.id.tvMinutes)
-        tvMinutes.setText(nFormat.format(totalMinutes))
-        val totalSeconds = Math.abs((today.millis - thatDay.millis) / 1000)
+        tvMinutes.text = nFormat.format(totalMinutes)
+        val totalSeconds = abs((today.millis - thatDay.millis) / 1000)
         val tvSeconds = findViewById<TextView>(R.id.tvSeconds)
-        tvSeconds.setText(nFormat.format(totalSeconds))
+        tvSeconds.text = nFormat.format(totalSeconds)
         Helper.makeDgList(personen)
         val tvNextParty = findViewById<TextView>(R.id.tvNextParty)
         val tvWhenNextParty = findViewById<TextView>(R.id.tvWhenNextParty)
         val fabDgLijst = findViewById<FloatingActionButton>(R.id.fabDgLijst)
         if (personen.size == 0) {
-            tvNextParty.setVisibility(View.GONE)
-            tvWhenNextParty.setVisibility(View.GONE)
+            tvNextParty.visibility = View.GONE
+            tvWhenNextParty.visibility = View.GONE
             fabDgLijst.hide()
             return
         }
         fabDgLijst.show()
-        tvNextParty.setVisibility(View.VISIBLE)
-        tvWhenNextParty.setVisibility(View.VISIBLE)
+        tvNextParty.visibility = View.VISIBLE
+        tvWhenNextParty.visibility = View.VISIBLE
         val dg = Helper.dgLijst[0]
-        val fmt = if (dg.getEenheid() == eenheidType.hour || dg.getEenheid() == eenheidType.minute || dg.getEenheid() == eenheidType.second) Helper.dtFormat else Helper.dFormat
+        val fmt = if (dg.getEenheid() == EenheidType.Hour || dg.getEenheid() == EenheidType.Minute || dg.getEenheid() == EenheidType.Second) Helper.dtFormat else Helper.dFormat
         val sDate = fmt.print(dg.getDatumTijd())
-        tvNextParty.setText(String.format(getString(R.string.next_party), sDate))
-        if (dg.getKind()== Helper.kindType.absolute) {
+        tvNextParty.text = String.format(getString(R.string.next_party), sDate)
+        if (dg.getKind() == Helper.KindType.Absolute) {
             val sAantal = Helper.numToString(dg.getAantal())
             val s = String.format(getString(R.string.Age), sAantal, dg.getEenheid())
-            tvWhenNextParty.setText(s)
-        }
-        else {
+            tvWhenNextParty.text = s
+        } else {
             val s = dg.getTextToShow()
-            tvWhenNextParty.setText(s)
+            tvWhenNextParty.text = s
         }
 
         animateDatumGeval()
@@ -440,7 +434,7 @@ class MainActivity : FragmentActivity() {
     private fun initDb() {
         val context = applicationContext
         val dh = DatabaseHelper.getInstance(context)
-        val aantal = dh.GetAantalPersonen()
+        val aantal = dh.getAantalPersonen()
         if (aantal == 0L) { // Voeg max aantal rijen toe
             for (i in 1..Helper.maxRijen) {
                 val persoon = Persoon()
@@ -450,54 +444,28 @@ class MainActivity : FragmentActivity() {
                 persoon.setGeselecteerd(i == 1)
                 persoon.setGetoond(i == 1)
                 persoon.setGevinkt(i == 1)
-                dh.UpdatePersoon(persoon)
+                dh.updatePersoon(persoon)
             }
         }
     }
 
     private fun stopTimer() {
-        val future = mFuture
-        if (mFuture != null) {
-            future!!.cancel(false)
-        }
+        mTimer?.cancel()
     }
 
     private fun initTimer() {
-        val mHandler = MyHandler(this)
-        val task = Runnable {
-            val cxt = applicationContext
-            try {
-                mHandler.obtainMessage(1).sendToTarget()
-            } catch (e: Exception) {
-                Helper.showMessage(cxt, e.message, false)
+        mTimer = fixedRateTimer(initialDelay = 1000, period = 1000, daemon = true) {
+            val handler = Handler(Looper.getMainLooper())
+            handler.post {
+                updateScreen()
             }
-        }
-        val future = mFuture
-        if (mFuture != null) {
-            future!!.cancel(false)
-        }
-        mFuture = mExecuter.scheduleAtFixedRate(task, 0, 1, TimeUnit.SECONDS)
-    }
-
-    //static inner class doesn't hold an implicit reference to the outer class
-    private class MyHandler internal constructor(myClassInstance: MainActivity) : Handler() {
-        //Using a weak reference means you won't prevent garbage collection
-        private val myClassWeakReference: WeakReference<MainActivity>
-
-        override fun handleMessage(msg: Message?) {
-            val ma = myClassWeakReference.get()
-            ma?.updateScreen()
-        }
-
-        init {
-            myClassWeakReference = WeakReference(myClassInstance)
         }
     }
 
     private fun restart(force: Boolean) {
         if (mInCalDiaglog) return
         if (!force) {
-            for (i in Helper.dgLijst.indices) if (Helper.dgLijst[i].getAnimatie() != animatie.finished) return
+            for (i in Helper.dgLijst.indices) if (Helper.dgLijst[i].getAnimatie() != Animatie.Finished) return
         }
         // Alle animaties zijn gefinished
         Helper.dgLijst = ArrayList()
@@ -509,7 +477,7 @@ class MainActivity : FragmentActivity() {
     private fun setPersons() {
         val context = applicationContext
         val dh = DatabaseHelper.getInstance(context)
-        val personen = dh.GetAllePersonen()
+        val personen = dh.getAllePersonen()
         for (persoon in personen) {
             setViewVisible("etName", persoon.getId(), persoon.getGetoond() == true)
             setViewVisible("cb", persoon.getId(), persoon.getGetoond() == true)
@@ -518,16 +486,16 @@ class MainActivity : FragmentActivity() {
         }
     }
 
-    private fun bepaalNamen(): String? {
+    private fun bepaalNamen(): String {
         val context = applicationContext
         val dh = DatabaseHelper.getInstance(context)
-        val personen = dh.GetAangevinktePersonen()
+        val personen = dh.getAangevinktePersonen()
         val namenBuilder = StringBuilder()
         for (persoon in personen) {
             namenBuilder.append(persoon.getNaam()).append(" + ")
         }
         var namen = namenBuilder.toString()
-        if (namen.length > 0) {
+        if (namen.isNotEmpty()) {
             namen = namen.substring(0, namen.length - 3)
         }
         return namen
@@ -536,7 +504,7 @@ class MainActivity : FragmentActivity() {
     private fun setNaam() {
         val namen = bepaalNamen()
         val tvNames = findViewById<TextView>(R.id.tvNames)
-        tvNames.setText(namen)
+        tvNames.text = namen
         Helper.dgLijst = ArrayList()
     }
 
@@ -544,10 +512,10 @@ class MainActivity : FragmentActivity() {
         val context = applicationContext
         val res = context.resources
         val packname = context.packageName
-        val vName = name + Integer.toString(nr)
+        val vName = name + nr.toString()
         val id = res.getIdentifier(vName, "id", packname)
         val vw = findViewById<View>(id)
-        vw.setVisibility(if (visible) View.VISIBLE else View.GONE)
+        vw.visibility = if (visible) View.VISIBLE else View.GONE
     }
 
     private fun showPersonsDialog() {

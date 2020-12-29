@@ -4,32 +4,34 @@ import android.content.Context
 import android.widget.Toast
 import org.joda.time.DateTime
 import org.joda.time.format.DateTimeFormat
+import org.joda.time.format.DateTimeFormatter
 import java.util.*
 
 internal object Helper {
     private const val DEBUG = false
-    val dtFormat = DateTimeFormat.forPattern("dd-MM-yyyy HH:mm:ss")
-    val dtmFormat = DateTimeFormat.forPattern("dd-MM-yyyy HH:mm")
-    val dFormat = DateTimeFormat.forPattern("dd-MM-yyyy")
-    val tFormatHhMmSs = DateTimeFormat.forPattern("HH:mm:ss")
+    val dtFormat: DateTimeFormatter = DateTimeFormat.forPattern("dd-MM-yyyy HH:mm:ss")
+    val dtmFormat: DateTimeFormatter = DateTimeFormat.forPattern("dd-MM-yyyy HH:mm")
+    val dFormat: DateTimeFormatter = DateTimeFormat.forPattern("dd-MM-yyyy")
+    val tFormatHhMmSs: DateTimeFormatter = DateTimeFormat.forPattern("HH:mm:ss")
     const val Duration = 10000
     const val maxRijen = 5
     var dgLijst: ArrayList<DatumGeval> = ArrayList()
     var Nr = 1
-    private fun Log(log: String?) {
+
+    private fun log(log: String?) {
         if (DEBUG) {
             println(log)
         }
     }
 
     fun showMessage(cxt: Context?, melding: String?, isLong: Boolean) {
-        Log(melding)
+        log(melding)
         val duration = if (isLong) Toast.LENGTH_LONG else Toast.LENGTH_SHORT
         val toast = Toast.makeText(cxt, melding, duration)
         toast.show()
     }
 
-    fun numToString(aantal: Long): String? {
+    fun numToString(aantal: Long): String {
         if (aantal < 1000) return String.format("%s", aantal)
         if (aantal < 1000000 && aantal % 1000 != 0L) return String.format("%s", aantal)
         if (aantal < 1000000 && aantal % 1000 == 0L) return String.format("%sk", aantal / 1000)
@@ -57,7 +59,7 @@ internal object Helper {
             if (today.isAfter(d)) continue
             val verschil = (d.millis - today.millis) / factor
             d = today.plus(verschil)
-            dg = DatumGeval(eenheidType.year, d, y.toLong())
+            dg = DatumGeval(EenheidType.Year, d, y.toLong())
             dgLijst.add(dg)
         }
         val maanden = intArrayOf(1, 10, 100, 200, 400, 500, 700, 800,
@@ -70,7 +72,7 @@ internal object Helper {
             if (today.isAfter(d)) continue
             val verschil = (d.millis - today.millis) / factor
             d = today.plus(verschil)
-            dg = DatumGeval(eenheidType.month, d, maand.toLong())
+            dg = DatumGeval(EenheidType.Month, d, maand.toLong())
             dgLijst.add(dg)
         }
         val weken = intArrayOf(1, 10, 100, 200, 300, 400, 500, 600, 700, 800, 900,
@@ -90,7 +92,7 @@ internal object Helper {
             if (today.isAfter(d)) continue
             val verschil = (d.millis - today.millis) / factor
             d = today.plus(verschil)
-            dg = DatumGeval(eenheidType.week, d, week.toLong())
+            dg = DatumGeval(EenheidType.Week, d, week.toLong())
             dgLijst.add(dg)
         }
         // Let op er ontbreken expres een aantal waarden (1000 weken = 7000 dagen etc)
@@ -103,7 +105,7 @@ internal object Helper {
             if (today.isAfter(d)) continue
             val verschil = (d.millis - today.millis) / factor
             d = today.plus(verschil)
-            dg = DatumGeval(eenheidType.day, d, dag.toLong())
+            dg = DatumGeval(EenheidType.Day, d, dag.toLong())
             dgLijst.add(dg)
         }
         val uren = intArrayOf(10, 100, 1000, 10000, 100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000,
@@ -114,7 +116,7 @@ internal object Helper {
             if (today.isAfter(d)) continue
             val verschil = (d.millis - today.millis) / factor
             d = today.plus(verschil)
-            dg = DatumGeval(eenheidType.hour, d, uur.toLong())
+            dg = DatumGeval(EenheidType.Hour, d, uur.toLong())
             dgLijst.add(dg)
         }
         val minuten = intArrayOf(100, 1000, 10000, 100000, 1000000, 10000000, 20000000, 40000000, 50000000, 70000000, 80000000,
@@ -125,7 +127,7 @@ internal object Helper {
             if (today.isAfter(d)) continue
             val verschil = (d.millis - today.millis) / factor
             d = today.plus(verschil)
-            dg = DatumGeval(eenheidType.minute, d, minuut.toLong())
+            dg = DatumGeval(EenheidType.Minute, d, minuut.toLong())
             dgLijst.add(dg)
         }
         val seconden = arrayOf(1L, 10L, 100L, 1000L, 10000L, 100000L, 1000000L, 10000000L, 100000000L, 200000000L,
@@ -149,7 +151,7 @@ internal object Helper {
             if (today.isAfter(d)) continue
             val verschil = (d.millis - today.millis) / factor
             d = today.plus(verschil)
-            dg = DatumGeval(eenheidType.second, d, seconde)
+            dg = DatumGeval(EenheidType.Second, d, seconde)
             dgLijst.add(dg)
         }
 
@@ -164,7 +166,7 @@ internal object Helper {
                 for (times in timesList) {
                     var oudsteDat: DateTime
                     var jongsteDat: DateTime
-                    var txtToShow = ""
+                    var txtToShow: String
 
                     if (p1.getGebdatum()!! < p2.getGebdatum()) {
                         oudsteDat = p1.getGebdatum()!!
@@ -177,38 +179,37 @@ internal object Helper {
                     }
                     val datVerschil = berekenVerschil(oudsteDat, jongsteDat, times)
                     if (datVerschil.isAfter(today)) {
-                        dg = DatumGeval(eenheid = eenheidType.second,
+                        dg = DatumGeval(eenheid = EenheidType.Second,
                                 datumTijd = datVerschil,
-                                kind = Helper.kindType.relative,
+                                kind = KindType.Relative,
                                 textToShow = txtToShow)
                         dgLijst.add(dg)
 
                     }
                 }
             }
-            Collections.sort(dgLijst) { lhs, rhs -> lhs.getDatumTijd()!!.compareTo(rhs.getDatumTijd()) }
+            dgLijst.sortWith { lhs, rhs -> lhs.getDatumTijd()!!.compareTo(rhs.getDatumTijd()) }
         }
     }
 
-    fun berekenVerschil(oudsteDat: DateTime, jongsteDat: DateTime, aantal: Int): DateTime {
+    private fun berekenVerschil(oudsteDat: DateTime, jongsteDat: DateTime, aantal: Int): DateTime {
         val oudsteMs = oudsteDat.millis
         val jongsteMs = jongsteDat.millis
         val resultMs = oudsteMs + ((aantal / (aantal - 1.0)) * (jongsteMs - oudsteMs))
         val resultL = resultMs.toLong()
-        val result = DateTime(resultL)
-        return result
+        return DateTime(resultL)
     }
 
 
-    internal enum class eenheidType {
-        year, month, week, day, hour, minute, second
+    internal enum class EenheidType {
+        Year, Month, Week, Day, Hour, Minute, Second
     }
 
-    internal enum class kindType {
-        absolute, relative
+    internal enum class KindType {
+        Absolute, Relative
     }
 
-    internal enum class animatie {
-        waiting, running, finished
+    internal enum class Animatie {
+        Waiting, Running, Finished
     }
 }

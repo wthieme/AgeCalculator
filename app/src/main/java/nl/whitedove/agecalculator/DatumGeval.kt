@@ -1,82 +1,83 @@
 package nl.whitedove.agecalculator
 
-import nl.whitedove.agecalculator.Helper.animatie
-import nl.whitedove.agecalculator.Helper.eenheidType
+import nl.whitedove.agecalculator.Helper.Animatie
+import nl.whitedove.agecalculator.Helper.EenheidType
 import org.joda.time.DateTime
 
-internal class DatumGeval(eenheid: eenheidType? = null,
+internal class DatumGeval(eenheid: EenheidType? = null,
                           datumTijd: DateTime?,
                           aantal: Long = 0,
-                          kind: Helper.kindType = Helper.kindType.absolute,
+                          kind: Helper.KindType = Helper.KindType.Absolute,
                           textToShow: String = "") {
-    private var Eenheid: eenheidType? = null
-    private var DatumTijd: DateTime? = null
-    private var Aantal: Long = 0
-    private var Animatie: animatie? = null
-    private var AnimatieStartTijd: DateTime? = null
-    private var Kind: Helper.kindType = Helper.kindType.absolute
-    private var TextToShow: String = ""
-    fun getAnimatie(): animatie? {
-        return Animatie
-    }
+    private var _eenheid: EenheidType? = null
+    private var _datumTijd: DateTime? = null
+    private var _aantal: Long = 0
+    private var _animatie: Animatie? = null
+    private var _animatieStartTijd: DateTime? = null
+    private var _kind: Helper.KindType = Helper.KindType.Absolute
+    private var _textToShow: String = ""
 
     fun setAnimatieStartTijd(animatieStartTijd: DateTime?) {
-        AnimatieStartTijd = animatieStartTijd
+        _animatieStartTijd = animatieStartTijd
     }
 
     fun getAnimatieStartTijd(): DateTime? {
-        return AnimatieStartTijd
+        return _animatieStartTijd
     }
 
-    fun setAnimatie(animatie: animatie?) {
-        Animatie = animatie
+    fun getAnimatie(): Animatie? {
+        return _animatie
     }
 
-    fun getEenheid(): eenheidType? {
-        return Eenheid
+    fun setAnimatie(animatie: Animatie?) {
+        _animatie = animatie
     }
 
-    private fun setEenheid(eenheid: eenheidType?) {
-        Eenheid = eenheid
+    fun getEenheid(): EenheidType? {
+        return _eenheid
+    }
+
+    private fun setEenheid(eenheid: EenheidType?) {
+        _eenheid = eenheid
     }
 
     fun getDatumTijd(): DateTime? {
-        return DatumTijd
+        return _datumTijd
     }
 
     private fun setDatumTijd(datumTijd: DateTime?) {
-        DatumTijd = datumTijd
+        _datumTijd = datumTijd
     }
 
     fun getAantal(): Long {
-        return Aantal
+        return _aantal
     }
 
     private fun setAantal(aantal: Long) {
-        Aantal = aantal
+        _aantal = aantal
     }
 
-    fun getKind(): Helper.kindType {
-        return Kind
+    fun getKind(): Helper.KindType {
+        return _kind
     }
 
-    private fun setKind(kind: Helper.kindType) {
-        Kind = kind
+    private fun setKind(kind: Helper.KindType) {
+        _kind = kind
     }
 
     fun getTextToShow(): String {
-        return TextToShow
+        return _textToShow
     }
 
     private fun setTextToShow(textToShow: String) {
-        TextToShow = textToShow
+        _textToShow = textToShow
     }
 
     init {
         setEenheid(eenheid)
         setDatumTijd(datumTijd)
         setAantal(aantal)
-        setAnimatie(animatie.waiting)
+        setAnimatie(Animatie.Waiting)
         setKind(kind)
         setTextToShow(textToShow)
     }

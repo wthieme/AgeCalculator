@@ -7,7 +7,7 @@ import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 
 class DatePickerFragment : DialogFragment() {
-    var ondateSet: OnDateSetListener? = null
+    private var ondateSet: OnDateSetListener? = null
     fun setCallBack(ondate: OnDateSetListener?) {
         ondateSet = ondate
     }

@@ -7,7 +7,7 @@ import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 
 class TimePickerFragment : DialogFragment() {
-    var ontimeSet: OnTimeSetListener? = null
+    private var ontimeSet: OnTimeSetListener? = null
     fun setCallBack(ontime: OnTimeSetListener?) {
         ontimeSet = ontime
     }

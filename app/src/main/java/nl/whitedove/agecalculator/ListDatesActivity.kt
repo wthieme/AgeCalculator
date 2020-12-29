@@ -13,24 +13,24 @@ class ListDatesActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.dates_list_activity)
         val fabTerug: FloatingActionButton = findViewById(R.id.fabTerug)
-        fabTerug.setOnClickListener { Terug() }
+        fabTerug.setOnClickListener { terug() }
         val extras = intent.extras!!
         val namen = extras.getString("namen")
-        ToonData(namen)
+        toonData(namen)
     }
 
-    private fun Terug() {
+    private fun terug() {
         val intent = Intent(this, MainActivity::class.java)
         Helper.dgLijst = ArrayList()
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)
     }
 
-    private fun ToonData(namen: String?) {
+    private fun toonData(namen: String?) {
         val tvNamen = findViewById<TextView>(R.id.tvNamen)
-        tvNamen.setText(namen)
+        tvNamen.text = namen
         if (Helper.dgLijst.size == 0) return
         val lvEigenMeldingen = findViewById<ListView>(R.id.lvDates)
-        lvEigenMeldingen.setAdapter(CustomListAdapterDates(this, Helper.dgLijst))
+        lvEigenMeldingen.adapter = CustomListAdapterDates(this, Helper.dgLijst)
     }
 }
